@@ -3,6 +3,11 @@ const app = express();
 const bodyParser = require("body-parser");
 const path = require("path");
 
+const mongoose = require("mongoose");
+mongoose.Promise = global.Promise;
+require("./server/config/mongoose.js");
+require("./server/models/user.js");
+
 const http = require("http");
 const server = http.Server(app);
 

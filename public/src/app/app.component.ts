@@ -9,6 +9,7 @@ import { ChatService } from "./services/chat.service";
 export class AppComponent {
   message: string;
   messages: string[] = [];
+  user: any;
   users: any[] = [];
 
   constructor(private chatService: ChatService) {}
@@ -16,6 +17,12 @@ export class AppComponent {
   public sendMessage() {
     this.chatService.sendMessage(this.message);
     this.message = "";
+  }
+
+  public onSubmit() {
+    this.chatService.createUser().subscribe((user: any) => {
+      console.log("created user");
+    });
   }
 
   ngOnInit() {

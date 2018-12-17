@@ -40,8 +40,9 @@
     <div id="container">
       <p>Welcome to the world's #1 messaging platform:</p>
       <p>Your name:</p>
-      <form id="userForm">
-        <input type="text" id="name" /> <button type="submit">OK</button>
+      <form id="userForm" (submit)="onSubmit()">
+        <input type="text" [(ngModel)]="user" id="name" />
+        <button type="submit">OK</button>
       </form>
     </div>
   </body>
