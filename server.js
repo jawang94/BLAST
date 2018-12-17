@@ -19,8 +19,10 @@ const port = process.env.PORT || 3000;
 io.on("connection", client => {
   console.log("A new user has connected");
 
-  client.on("register", user => {
+  client.on("new-user", user => {
+    user.id = client.id;
     console.log(user);
+    io.emit("emit-new-user", user);
   });
 
   client.on("new-message", message => {
@@ -28,11 +30,11 @@ io.on("connection", client => {
     io.emit("emit-new-message", message);
   });
 
-  client.on("message", handleMessage);
+  //   client.on("message", handleMessage);
 
-  client.on("threadrooms", handleGetThreadRooms);
+  //   client.on("threadrooms", handleGetThreadRooms);
 
-  client.on("activeUsers", handleGetActiveUsers);
+  //   client.on("activeUsers", handleGetActiveUsers);
 
   client.on("disconnect", function() {
     console.log("client disconnect...", client.id);

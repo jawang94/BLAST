@@ -14,7 +14,7 @@ export class ChatService {
   }
 
   public register(user) {
-    this.socket.emit("register", user);
+    this.socket.emit("new-user", user);
   }
 
   public getMessages = () => {
@@ -27,8 +27,8 @@ export class ChatService {
 
   public getUsers = () => {
     return Observable.create(observer => {
-      this.socket.on("emit-new-user", message => {
-        observer.next(message);
+      this.socket.on("emit-new-user", user => {
+        observer.next(user);
       });
     });
   };

@@ -11,27 +11,39 @@
       $(document).ready(function() {
         var socket = io.connect("http://localhost:3000");
 
-        socket.on("new_user", function(data) {
-          console.log("got that user");
+        $("#userForm").on("submit", function(e) {
           $("#container").fadeOut(1000);
           $("#conversation_board").fadeIn(1000);
           $("#messageForm").fadeIn(1000);
           $("#title").fadeIn(1000);
           $("#user_list").fadeIn(1000);
         });
+
+        // socket.on("emit-new-user", function(data) {
+        //   console.log("got that user");
+        //   $("#container").fadeOut(1000);
+        //   $("#conversation_board").fadeIn(1000);
+        //   $("#messageForm").fadeIn(1000);
+        //   $("#title").fadeIn(1000);
+        //   $("#user_list").fadeIn(1000);
+        // });
       });
     </script>
   </head>
 
   <body>
     <h1 id="title">Conversation Board</h1>
-    <div *ngFor="let message of messages" class="conversation_board">
+    <div *ngFor="let message of messages" id="conversation_board">
       <p>{{ message }}</p>
     </div>
-    <div id="user_list"></div>
+    <div *ngFor="let user of users" id="user_list">
+      <p>{{ user.name }}</p>
+    </div>
     <form id="messageForm">
       <input
         [(ngModel)]="message"
+        name="message"
+        placeholder="Type a message"
         (keyup)="$event.keyCode == 13 && sendMessage()"
       />
       <button (click)="sendMessage()">Send</button>
@@ -41,9 +53,15 @@
       <p>Welcome to the world's #1 messaging platform:</p>
       <p>Your name:</p>
       <form id="userForm" (submit)="onSubmit()">
-        <input type="text" [(ngModel)]="user" id="name" />
+        <input
+          type="text"
+          [(ngModel)]="user.name"
+          name="user.name"
+          placeholder="Username"
+        />
         <button type="submit">OK</button>
       </form>
+      <p>{{ user | json }}</p>
     </div>
     <router-outlet></router-outlet>
   </body>

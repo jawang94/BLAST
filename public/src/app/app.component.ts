@@ -25,9 +25,15 @@ export class AppComponent {
   }
 
   ngOnInit() {
+    this.user = { name: "", id: "" };
+
     this.chatService.getMessages().subscribe((message: string) => {
       console.log(message);
       this.messages.push(message);
+    });
+    this.chatService.getUsers().subscribe((user: any) => {
+      console.log(user);
+      this.users.push(user);
     });
   }
 }
