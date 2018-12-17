@@ -20,9 +20,8 @@ export class AppComponent {
   }
 
   public onSubmit() {
-    this.chatService.createUser().subscribe((user: any) => {
-      console.log("created user");
-    });
+    this.chatService.register(this.user);
+    this.user = "";
   }
 
   ngOnInit() {

@@ -16,12 +16,31 @@ const io = socketIO(server);
 
 const port = process.env.PORT || 3000;
 
-io.on("connection", socket => {
-  console.log("user connected");
+io.on("connection", client => {
+  console.log("A new user has connected");
 
-  socket.on("new-message", message => {
+  client.on("register", user => {
+    console.log(user);
+  });
+
+  client.on("new-message", message => {
     console.log(message);
     io.emit("emit-new-message", message);
+  });
+
+  client.on("message", handleMessage);
+
+  client.on("threadrooms", handleGetThreadRooms);
+
+  client.on("activeUsers", handleGetActiveUsers);
+
+  client.on("disconnect", function() {
+    console.log("client disconnect...", client.id);
+  });
+
+  client.on("error", function(err) {
+    console.log("received error from client:", client.id);
+    console.log(err);
   });
 });
 

@@ -13,11 +13,21 @@ export class ChatService {
     this.socket.emit("new-message", message);
   }
 
-  public createUser = () => {};
+  public register(user) {
+    this.socket.emit("register", user);
+  }
 
   public getMessages = () => {
     return Observable.create(observer => {
       this.socket.on("emit-new-message", message => {
+        observer.next(message);
+      });
+    });
+  };
+
+  public getUsers = () => {
+    return Observable.create(observer => {
+      this.socket.on("emit-new-user", message => {
         observer.next(message);
       });
     });
