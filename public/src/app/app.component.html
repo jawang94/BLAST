@@ -1,0 +1,48 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Chatroom</title>
+    <link rel="stylesheet" href="../stylesheets/index.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script type="text/javascript" src="/socket.io/socket.io.js"></script>
+    <script type="text/javascript">
+      $(document).ready(function() {
+        var socket = io.connect("http://localhost:3000");
+
+        socket.on("new_user", function(data) {
+          console.log("got that user");
+          $("#container").fadeOut(1000);
+          $("#conversation_board").fadeIn(1000);
+          $("#messageForm").fadeIn(1000);
+          $("#title").fadeIn(1000);
+          $("#user_list").fadeIn(1000);
+        });
+      });
+    </script>
+  </head>
+
+  <body>
+    <h1 id="title">Conversation Board</h1>
+    <div *ngFor="let message of messages" class="conversation_board">
+      <p>{{ message }}</p>
+    </div>
+    <div id="user_list"></div>
+    <form id="messageForm">
+      <input
+        [(ngModel)]="message"
+        (keyup)="$event.keyCode == 13 && sendMessage()"
+      />
+      <button (click)="sendMessage()">Send</button>
+    </form>
+
+    <div id="container">
+      <p>Welcome to the world's #1 messaging platform:</p>
+      <p>Your name:</p>
+      <form id="userForm">
+        <input type="text" id="name" /> <button type="submit">OK</button>
+      </form>
+    </div>
+  </body>
+</html>
