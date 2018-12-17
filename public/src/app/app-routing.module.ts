@@ -24,7 +24,7 @@ const routes: Routes = [
     component: JoinedthreadsComponent
   },
   {
-    path: "app/joinedthreads",
+    path: "home",
     component: JoinedthreadsComponent
   },
   { path: "", pathMatch: "full", redirectTo: "home" }];
