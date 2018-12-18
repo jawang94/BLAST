@@ -4,50 +4,29 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Chatroom</title>
-    <link rel="stylesheet" href="../stylesheets/index.css" />
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <script type="text/javascript" src="/socket.io/socket.io.js"></script>
-    <script type="text/javascript">
-      $(document).ready(function() {
-        var socket = io.connect("http://localhost:3000");
-
-        $("#userForm").on("submit", function(e) {
-          $("#container").fadeOut(1000);
-          $("#conversation_board").fadeIn(1000);
-          $("#messageForm").fadeIn(1000);
-          $("#title").fadeIn(1000);
-          $("#user_list").fadeIn(1000);
-        });
-
-        // socket.on("emit-new-user", function(data) {
-        //   console.log("got that user");
-        //   $("#container").fadeOut(1000);
-        //   $("#conversation_board").fadeIn(1000);
-        //   $("#messageForm").fadeIn(1000);
-        //   $("#title").fadeIn(1000);
-        //   $("#user_list").fadeIn(1000);
-        // });
-      });
-    </script>
   </head>
 
   <body>
-    <h1 id="title">Conversation Board</h1>
-    <div *ngFor="let message of messages" id="conversation_board">
-      <p>{{ message }}</p>
+    <app-navbar></app-navbar>
+    <div id="wrapper">
+      <h1 id="title">Conversation Board</h1>
+      <div id="conversation_board">
+        <p *ngFor="let message of messages">
+          {{ message.user.name }}: {{ message.content }}
+        </p>
+      </div>
+      <div *ngFor="let user of users" id="user_list">
+        <p>{{ user.name }}</p>
+      </div>
+      <form id="messageForm">
+        <input
+          [(ngModel)]="message.content"
+          name="message"
+          placeholder="Type a message"
+        />
+        <button (click)="sendMessage()">Send</button>
+      </form>
     </div>
-    <div *ngFor="let user of users" id="user_list">
-      <p>{{ user.name }}</p>
-    </div>
-    <form id="messageForm">
-      <input
-        [(ngModel)]="message"
-        name="message"
-        placeholder="Type a message"
-        (keyup)="$event.keyCode == 13 && sendMessage()"
-      />
-      <button (click)="sendMessage()">Send</button>
-    </form>
 
     <div id="container">
       <p>Welcome to the world's #1 messaging platform:</p>
@@ -56,14 +35,13 @@
         <input
           type="text"
           [(ngModel)]="user.name"
-          name="user.name"
+          name="username"
           placeholder="Username"
         />
         <button type="submit">OK</button>
       </form>
       <p>{{ user | json }}</p>
     </div>
-    <app-navbar></app-navbar>
     <app-joinedthreads></app-joinedthreads>
   </body>
 </html>
