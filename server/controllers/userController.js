@@ -1,7 +1,7 @@
 const mongoose = require("mongoose"),
-  User = mongoose.model("User");
-Thread = mongoose.model("Thread");
-Comment = mongoose.model("Comment");
+  User = mongoose.model("User"),
+  Thread = mongoose.model("Thread"),
+  Comment = mongoose.model("Comment");
 
 module.exports = {
   userIndex: (req, res) => {
@@ -16,10 +16,11 @@ module.exports = {
 
   userNew: (req, res) => {
     console.log("Controller check", req.body);
-    var User = new User({
+    var user = new User({
       username: req.body.name
     });
-    User.save()
+    user
+      .save()
       .then(item => {
         res.json({ message: "Success", item });
       })
@@ -81,11 +82,12 @@ module.exports = {
 
   threadNew: (req, res) => {
     console.log("Controller check", req.body);
-    var Thread = new Thread({
+    var thread = new Thread({
       title: req.body.title,
       category: req.body.title
     });
-    Thread.save()
+    thread
+      .save()
       .then(item => {
         res.json({ message: "Success", item });
       })
@@ -147,10 +149,11 @@ module.exports = {
 
   commentNew: (req, res) => {
     console.log("Controller check", req.body);
-    var Comment = new Comment({
+    var comment = new Comment({
       content: req.body.content
     });
-    Comment.save()
+    comment
+      .save()
       .then(item => {
         res.json({ message: "Success", item });
       })
