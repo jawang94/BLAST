@@ -1,20 +1,100 @@
-<h1>Test</h1>
-<div id="wrapper">
-  <h1 id="title">Conversation Board</h1>
-  <div id="conversation_board">
-    <p *ngFor="let message of messages">
-      {{ message.user.name }}: {{ message.content }}
-    </p>
+<!-- chatbox -->
+
+<link
+  href="//netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css"
+  rel="stylesheet"
+  id="bootstrap-css"
+/>
+<script src="//netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+
+<div class="container">
+  <div id="wrapper">
+    <h1 id="title">Conversation Board</h1>
+    <div id="conversation_board">
+      <p *ngFor="let message of messages">
+        {{ message.user.name }}: {{ message.content }}
+      </p>
+    </div>
+    <div *ngFor="let user of users" id="user_list">
+      <p>{{ user.name }}</p>
+    </div>
+    <form id="messageForm">
+      <input
+        [(ngModel)]="message.content"
+        name="message"
+        placeholder="Type a message"
+      />
+      <button (click)="sendMessage()">Send</button>
+    </form>
   </div>
-  <div *ngFor="let user of users" id="user_list">
-    <p>{{ user.name }}</p>
+
+  <div
+    class="row chat-window col-xs-5 col-md-3"
+    id="chat_window_1"
+    style="margin-left:10px;"
+  >
+    <div class="col-xs-12 col-md-12">
+      <div class="panel panel-default">
+        <div class="panel-heading top-bar">
+          <div class="col-md-8 col-xs-8">
+            <h3 class="panel-title">
+              <span class="glyphicon glyphicon-comment"></span> Thread Title
+              HERE
+            </h3>
+          </div>
+        </div>
+        <div class="panel-body msg_container_base">
+          <div class="row msg_container base_sent">
+            <div class="col-md-10 col-xs-10">
+              <div class="messages msg_sent">
+                <p>DISPLAY CHATS HERE</p>
+                <time>NAME + DATE TIME</time>
+              </div>
+            </div>
+            <div class="col-md-2 col-xs-2 avatar">
+              <img
+                src="http://www.bitrebels.com/wp-content/uploads/2011/02/Original-Facebook-Geek-Profile-Avatar-1.jpg"
+                class=" img-responsive "
+              />
+            </div>
+          </div>
+          <div class="row msg_container base_receive">
+            <div class="col-md-2 col-xs-2 avatar">
+              <img
+                src="http://www.bitrebels.com/wp-content/uploads/2011/02/Original-Facebook-Geek-Profile-Avatar-1.jpg"
+                class=" img-responsive "
+              />
+            </div>
+            <div class="col-md-10 col-xs-10">
+              <div class="messages msg_receive">
+                <p>DISPLAY RECEIVED MESSAGE LIKE THIS</p>
+                <time datetime="2009-11-13T20:00">NAME + DATE TIME</time>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="panel-footer">
+          <div class="input-group">
+            <input
+              id="btn-input"
+              type="text"
+              class="form-control input-sm chat_input"
+              placeholder="Write your message here..."
+            />
+            <span class="input-group-btn">
+              <button class="btn btn-primary btn-sm" id="btn-chat">Send</button>
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
-  <form id="messageForm">
-    <input
-      [(ngModel)]="message.content"
-      name="message"
-      placeholder="Type a message"
-    />
-    <button (click)="sendMessage()">Send</button>
-  </form>
+
+  <!-- Active user thing -->
+
+  <div class="sidenav">
+    <p>Active Users</p>
+    <a href="#">User1</a> <a href="#">User2</a> <a href="#">User3</a>
+  </div>
 </div>
