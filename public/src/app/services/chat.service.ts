@@ -1,12 +1,11 @@
 import * as io from "socket.io-client";
 import { Observable } from "rxjs";
-import { HttpService } from "./http.service";
 
 export class ChatService {
   private url = "http://localhost:3000";
   private socket;
 
-  constructor(private httpService: HttpService) {
+  constructor() {
     this.socket = io(this.url);
   }
 
