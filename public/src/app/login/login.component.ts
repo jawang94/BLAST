@@ -1,6 +1,7 @@
 import { Component, OnInit } from "@angular/core";
 import { ChatService } from "../services/chat.service";
 import { ModalService } from "../services/modal.service";
+import { HttpService } from "../services/http.service";
 
 @Component({
   selector: "app-login",
@@ -12,7 +13,8 @@ export class LoginComponent implements OnInit {
 
   constructor(
     private chatService: ChatService,
-    private modalService: ModalService
+    private modalService: ModalService,
+    private httpService: HttpService
   ) {}
 
   public onSubmit() {
