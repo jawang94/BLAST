@@ -36,4 +36,4 @@ const ThreadSchema = new mongoose.Schema({
 });
 var Thread = mongoose.model("Thread", ThreadSchema);
 
-module.exports = [User, Thread, Comment];
+module.exports = { User, Comment, Thread };
