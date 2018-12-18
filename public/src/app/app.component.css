@@ -42,3 +42,13 @@
 p {
     display: block;
 }
+
+#threadForm {
+    display: none;
+    margin: 10% 0 0 0;
+}
+
+#threadList {
+    display: none;
+    text-align: left;
+}

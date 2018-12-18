@@ -30,6 +30,11 @@ io.on("connection", client => {
     io.emit("emit-new-message", message);
   });
 
+  client.on("new-thread", thread => {
+    console.log(thread);
+    io.emit("emit-new-thread", thread);
+  });
+
   //   client.on("message", handleMessage);
 
   //   client.on("threadrooms", handleGetThreadRooms);

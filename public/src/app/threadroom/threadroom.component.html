@@ -1,3 +1,20 @@
-<p>
-  threadroom works!
-</p>
+<h1>Test</h1>
+<div id="wrapper">
+  <h1 id="title">Conversation Board</h1>
+  <div id="conversation_board">
+    <p *ngFor="let message of messages">
+      {{ message.user.name }}: {{ message.content }}
+    </p>
+  </div>
+  <div *ngFor="let user of users" id="user_list">
+    <p>{{ user.name }}</p>
+  </div>
+  <form id="messageForm">
+    <input
+      [(ngModel)]="message.content"
+      name="message"
+      placeholder="Type a message"
+    />
+    <button (click)="sendMessage()">Send</button>
+  </form>
+</div>

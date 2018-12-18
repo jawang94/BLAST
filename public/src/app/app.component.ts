@@ -13,6 +13,8 @@ export class AppComponent implements OnInit {
   messages: any[] = [];
   user: any;
   users: any[] = [];
+  thread: any;
+  threads: any[] = [];
 
   constructor(private chatService: ChatService) {}
 
@@ -20,6 +22,11 @@ export class AppComponent implements OnInit {
     this.message.user = this.user;
     this.chatService.sendMessage(this.message);
     this.message = { content: "", user: "" };
+  }
+
+  public onThreadSubmit() {
+    this.thread.creator = this.user;
+    this.chatService.createThread(this.thread);
   }
 
   public onSubmit() {
@@ -35,9 +42,14 @@ export class AppComponent implements OnInit {
       console.log(user);
       this.users.push(user);
     });
+    this.chatService.getThreads().subscribe((thread: any) => {
+      console.log(thread);
+      this.threads.push(thread);
+    });
 
     this.user = { name: "", id: "" };
     this.message = { content: "", user: "" };
+    this.thread = { title: "", category: "", creator: "" };
 
     $(document).ready(function() {
       var socket = io.connect("http://localhost:3000");
@@ -49,6 +61,13 @@ export class AppComponent implements OnInit {
         $("#messageForm").fadeIn(1000);
         $("#title").fadeIn(1000);
         $("#user_list").fadeIn(1000);
+        $("#threadForm").fadeIn(1000);
+      });
+
+      socket.on("emit-new-thread", function(data) {
+        console.log("created new thread");
+        $("#threadForm").fadeOut(1000);
+        $("#threadList").fadeIn(1000);
       });
     });
   }
