@@ -1,8 +1,7 @@
 const mongoose = require("mongoose"),
   User = mongoose.model("User");
-  Thread = mongoose.model("Thread");
-  Comment = mongoose.model("Comment");
-
+Thread = mongoose.model("Thread");
+Comment = mongoose.model("Comment");
 
 module.exports = {
   userIndex: (req, res) => {
@@ -18,10 +17,9 @@ module.exports = {
   userNew: (req, res) => {
     console.log("Controller check", req.body);
     var User = new User({
-        username: req.body.username,
+      username: req.body.name
     });
-    User
-      .save()
+    User.save()
       .then(item => {
         res.json({ message: "Success", item });
       })
@@ -40,40 +38,36 @@ module.exports = {
       });
   },
 
-//   userUpdate: (req, res) => {
-//     console.log("got that edit request", req.body);
-//     User.updateOne(
-//       { _id: req.params.id },
-//       {
-//         $set: {
-//           username: req.body.username,
-//         }
-//       }
-//     )
-//       .then(data => {
-//         res.json({ message: "Success!", data });
-//       })
-//       .catch(err => {
-//         console.log("Returned error", err);
-//         res.json({ message: "Error", error: err });
-//       });
-//   },
+  //   userUpdate: (req, res) => {
+  //     console.log("got that edit request", req.body);
+  //     User.updateOne(
+  //       { _id: req.params.id },
+  //       {
+  //         $set: {
+  //           username: req.body.username,
+  //         }
+  //       }
+  //     )
+  //       .then(data => {
+  //         res.json({ message: "Success!", data });
+  //       })
+  //       .catch(err => {
+  //         console.log("Returned error", err);
+  //         res.json({ message: "Error", error: err });
+  //       });
+  //   },
 
-//   userDelete: (req, res) => {
-//     console.log("Delete Controller Check");
-//     User.deleteOne({ _id: req.params.id })
-//       .then(data => {
-//         res.json({ message: "Succes", data });
-//       })
-//       .catch(err => {
-//         console.log("Returned error", err);
-//         res.json({ message: "Error", error: err });
-//       });
-//   },
-
-
-
-
+  //   userDelete: (req, res) => {
+  //     console.log("Delete Controller Check");
+  //     User.deleteOne({ _id: req.params.id })
+  //       .then(data => {
+  //         res.json({ message: "Succes", data });
+  //       })
+  //       .catch(err => {
+  //         console.log("Returned error", err);
+  //         res.json({ message: "Error", error: err });
+  //       });
+  //   },
 
   threadIndex: (req, res) => {
     Thread.find({})
@@ -88,12 +82,10 @@ module.exports = {
   threadNew: (req, res) => {
     console.log("Controller check", req.body);
     var Thread = new Thread({
-        title: req.body.title,
-        category: req.body.title,
-
+      title: req.body.title,
+      category: req.body.title
     });
-    Thread
-      .save()
+    Thread.save()
       .then(item => {
         res.json({ message: "Success", item });
       })
@@ -118,7 +110,7 @@ module.exports = {
       { _id: req.params.id },
       {
         $set: {
-          Threadname: req.body.Threadname,
+          Threadname: req.body.Threadname
         }
       }
     )
@@ -143,11 +135,6 @@ module.exports = {
       });
   },
 
-
-
-
-
-
   commentIndex: (req, res) => {
     Comment.find({})
       .then(data => {
@@ -161,10 +148,9 @@ module.exports = {
   commentNew: (req, res) => {
     console.log("Controller check", req.body);
     var Comment = new Comment({
-        content: req.body.content,
+      content: req.body.content
     });
-    Comment
-      .save()
+    Comment.save()
       .then(item => {
         res.json({ message: "Success", item });
       })
@@ -189,7 +175,7 @@ module.exports = {
       { _id: req.params.id },
       {
         $set: {
-            content: req.body.content,
+          content: req.body.content
         }
       }
     )

@@ -19,6 +19,7 @@ export class LoginComponent implements OnInit {
 
   public onSubmit() {
     this.chatService.register(this.user);
+    this.httpService.createUser(this.user);
     this.user = { name: "", id: "" };
     this.close();
   }

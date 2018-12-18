@@ -1,9 +1,9 @@
 var controllers = require("../controllers/userController.js");
 
 module.exports = function(app) {
-//   app.get("/user", function(req, res) {
-//     controllers.index(req, res);
-//   });
+  app.get("/user", function(req, res) {
+    controllers.userIndex(req, res);
+  });
   app.get("/user/:id", function(req, res) {
     controllers.userShow(req, res);
   });
@@ -16,7 +16,6 @@ module.exports = function(app) {
   app.delete("/user/delete/:id", function(req, res) {
     controllers.userDelete(req, res);
   });
-
 
   app.get("/thread", function(req, res) {
     controllers.threadIndex(req, res);
@@ -33,7 +32,6 @@ module.exports = function(app) {
   app.delete("/thread/delete/:id", function(req, res) {
     controllers.threadDelete(req, res);
   });
-
 
   app.get("/comment", function(req, res) {
     controllers.commentIndex(req, res);

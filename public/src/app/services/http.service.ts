@@ -8,10 +8,14 @@ export class HttpService {
   constructor(private _http: HttpClient) {}
 
   public createUser(newUser) {
-    return this._http.post("/user/new", newUser);
+    return this._http.post("/user", newUser);
   }
 
   public getUsers() {
-    return this._http.get("/users");
+    return this._http.get("/user");
+  }
+
+  public findUser(userID) {
+    return this._http.get("/user/", userID);
   }
 }
