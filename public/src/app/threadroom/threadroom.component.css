@@ -48,7 +48,7 @@
 /* chatbox css */
 
 .container{
-    margin-left: 10%;
+    margin-left: 9.5%;
     margin-right: 10%;
     display: inline-block;
     width: 80%;
@@ -85,7 +85,7 @@ body{
   background: #e5e5e5;
   margin: 0;
   padding: 0 10px 10px;
-  max-height:300px;
+  max-height:100%;
   overflow-x:hidden;
 }
 .top-bar {
