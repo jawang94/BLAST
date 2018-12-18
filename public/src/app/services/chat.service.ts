@@ -13,10 +13,34 @@ export class ChatService {
     this.socket.emit("new-message", message);
   }
 
+  public register(user) {
+    this.socket.emit("new-user", user);
+  }
+
+  public createThread(thread) {
+    this.socket.emit("new-thread", thread);
+  }
+
   public getMessages = () => {
     return Observable.create(observer => {
       this.socket.on("emit-new-message", message => {
         observer.next(message);
+      });
+    });
+  };
+
+  public getUsers = () => {
+    return Observable.create(observer => {
+      this.socket.on("emit-new-user", user => {
+        observer.next(user);
+      });
+    });
+  };
+
+  public getThreads = () => {
+    return Observable.create(observer => {
+      this.socket.on("emit-new-thread", thread => {
+        observer.next(thread);
       });
     });
   };

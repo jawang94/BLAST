@@ -1,3 +1,48 @@
+<<<<<<< HEAD
+#wrapper {
+    width: 85%;
+    height: 85%;
+    position: absolute;
+    left: 10%;
+}
+
+#container {
+    position: absolute;
+    top: 30%;
+    left: 40%;
+    border: 1px solid black;
+    padding: 5%;
+}
+
+#conversation_board {
+    display: none;
+    background-color: antiquewhite;
+    width: 50%;
+    height: 50%;
+}
+
+#user_list {
+    position: absolute;
+    top: 5%;
+    left: 55%;
+    width: 10%;
+    padding: 1%;
+    background-color: azure;
+    text-align: center;
+    display: none;
+}
+
+#messageForm {
+    display: none;
+}
+
+#title {
+    display: none;
+}
+
+p {
+    display: block;
+=======
 /* The sidebar menu */
 .sidenav {
     height: 100%; /* Full-height: remove this if you want "auto" height */
@@ -181,4 +226,5 @@ img {
 {
     -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);
     background-color: #555;
+>>>>>>> origin/FrontEnd
 }

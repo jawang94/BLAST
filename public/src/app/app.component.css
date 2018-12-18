@@ -1,3 +1,10 @@
+#wrapper {
+    width: 85%;
+    height: 85%;
+    position: absolute;
+    left: 10%;
+}
+
 #container {
     position: absolute;
     top: 30%;
@@ -15,9 +22,9 @@
 
 #user_list {
     position: absolute;
-    top: 7%;
+    top: 5%;
     left: 55%;
-    width: auto;
+    width: 10%;
     padding: 1%;
     background-color: azure;
     text-align: center;
@@ -34,4 +41,14 @@
 
 p {
     display: block;
+}
+
+#threadForm {
+    display: none;
+    margin: 10% 0 0 0;
+}
+
+#threadList {
+    display: none;
+    text-align: left;
 }
