@@ -86,7 +86,7 @@ p {
 /* chatbox css */
 
 .container{
-    position: absolute;
+    position: fixed;
     top: 8%;
     margin-left: 9.5%;
     margin-right: 10%;
@@ -94,6 +94,7 @@ p {
     width: 80%;
     height: 100%;
     bottom:0;
+    overflow-y: scroll;
 }
 body{
     height:100%;
