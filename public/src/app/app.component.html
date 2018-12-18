@@ -7,10 +7,10 @@
   </head>
 
   <body>
-    <app-navbar></app-navbar>
-    <router-outlet></router-outlet>
-    <!-- <div id="wrapper">
-      <h1>Welcome {{ user.name }}</h1>
+    <app-navbar [user]="user"></app-navbar>
+    <router-outlet></router-outlet>    
+    
+    <div id="wrapper">
       <h1 id="title">Conversation Board</h1>
       <div id="conversation_board">
         <p *ngFor="let message of messages">
@@ -63,27 +63,10 @@
           </button>
         </tr>
       </table>
-    </div> -->
-
-    <!--
-      <div id="container">
-        <p>Welcome to the world's #1 messaging platform:</p>
-        <p>Your name:</p>
-        <form id="userForm" (submit)="onSubmit()">
-          <input
-            type="text"
-            [(ngModel)]="user.name"
-            name="username"
-            placeholder="Username"
-          />
-          <button type="submit">OK</button>
-        </form>
-      </div>
-    -->
+    </div>
+    
     <div id="modal-container" class="hidden"></div>
     <div id="overlay" (click)="removeModal()" class="hidden"></div>
-    <!-- <app-threadroom [user]="user"></app-threadroom> -->
     <app-joinedthreads></app-joinedthreads>
-    <!-- <app-threadroom></app-threadroom> -->
   </body>
 </html>
