@@ -6,17 +6,13 @@ import { ThreadroomComponent } from "./threadroom/threadroom.component";
 import { ThreadsComponent } from "./threads/threads.component";
 
 const routes: Routes = [
-  { 
-    path: "home", 
-    component: NavbarComponent,
-  },
   {
-    path: "home",
+    path: "threadroom",
     component: ThreadroomComponent
   },
   {
-    path: "home",
-    component: JoinedthreadsComponent
+    path: "thread",
+    component: ThreadsComponent
   },
   { path: "", pathMatch: "full", redirectTo: "home" }];
 

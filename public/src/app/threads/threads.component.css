@@ -1,0 +1,18 @@
+.container{
+    width: 90%;
+    position: absolute;
+    left: 10%;
+}
+
+.col-md-9{
+    width: 100%;
+}
+
+.img-responsive{
+    border-radius: 50%;
+    width: 20%;
+}
+
+.row{
+    width: 100%;
+}

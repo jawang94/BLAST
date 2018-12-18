@@ -1,3 +1,46 @@
-<p>
-  threads works!
-</p>
+<link
+  href="//netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css"
+  rel="stylesheet"
+  id="bootstrap-css"
+/>
+<script src="//netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+
+<div class="container">
+    <div class="col-md-9">
+      <div class="well hidden-xs"> 
+        <div class="row">
+          <div class="col-xs-4">
+            <select class="form-control">
+              <option>Featured</option>
+              <option>Recently Added</option>
+              <option>Next Upcoming Session</option>
+              <option>A-Z</option>
+              <option>Z-A</option>
+            </select>
+          </div>
+        </div>
+      </div>
+      
+      <hr>
+      <div class="row" >
+        <div class="col-sm-4"><a href="#" class=""><img src="http://placehold.it/720X720" class="img-responsive"></a>
+        </div>
+        <div class="col-sm-8">
+          <h3 class="title">{{ thread.title }}</h3>
+          <p>{{ thread.demotext }}</p>
+          <p class="text-muted">Presented by <a href="#">{{ thread.writer }}</a></p>
+        </div>
+      </div>
+      <hr>
+      <ul class="pagination pagination-lg pull-right">
+        <li><a href="#">«</a></li>
+        <li class="active"><a href="#">1</a></li>
+        <li><a href="#">2</a></li>
+        <li><a href="#">3</a></li>
+        <li><a href="#">4</a></li>
+        <li><a href="#">5</a></li>
+        <li><a href="#">»</a></li>
+      </ul>
+  </div>
+</div>

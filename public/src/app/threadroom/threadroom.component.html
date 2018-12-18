@@ -39,8 +39,7 @@
         <div class="panel-heading top-bar">
           <div class="col-md-8 col-xs-8">
             <h3 class="panel-title">
-              <span class="glyphicon glyphicon-comment"></span> Thread Title
-              HERE
+              <span class="glyphicon glyphicon-comment"></span> {{ thread.title }}
             </h3>
           </div>
         </div>
@@ -48,8 +47,8 @@
           <div class="row msg_container base_sent">
             <div class="col-md-10 col-xs-10">
               <div class="messages msg_sent">
-                <p>DISPLAY CHATS HERE</p>
-                <time>NAME + DATE TIME</time>
+                <p>{{ user.messageSent }}</p>
+                <time>{{ user.name }}@{{ message.createdAt }}</time>
               </div>
             </div>
             <div class="col-md-2 col-xs-2 avatar">
@@ -68,8 +67,8 @@
             </div>
             <div class="col-md-10 col-xs-10">
               <div class="messages msg_receive">
-                <p>DISPLAY RECEIVED MESSAGE LIKE THIS</p>
-                <time datetime="2009-11-13T20:00">NAME + DATE TIME</time>
+                <p>{{ thread.message }}</p>
+                <time datetime="2009-11-13T20:00">{{ message.writer.name }}@{{ message.createdAt }}</time>
               </div>
             </div>
           </div>
