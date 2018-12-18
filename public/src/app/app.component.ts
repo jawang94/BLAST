@@ -2,6 +2,8 @@ import { Component, OnInit } from "@angular/core";
 import { ChatService } from "./services/chat.service";
 import * as $ from "jquery";
 import * as io from "socket.io-client";
+import { ModalService } from "./services/modal.service";
+import { LoginComponent } from "./login/login.component";
 
 @Component({
   selector: "app-root",
@@ -16,7 +18,17 @@ export class AppComponent implements OnInit {
   thread: any;
   threads: any[] = [];
 
-  constructor(private chatService: ChatService) {}
+  constructor(
+    private chatService: ChatService,
+    private modalService: ModalService
+  ) {}
+
+  public initLoginModal() {
+    let inputs = {
+      isMobile: false
+    };
+    this.modalService.init(LoginComponent, inputs, {});
+  }
 
   public sendMessage() {
     this.message.user = this.user;
@@ -29,14 +41,16 @@ export class AppComponent implements OnInit {
     this.chatService.createThread(this.thread);
   }
 
-  public onSubmit() {
-    this.chatService.register(this.user);
-  }
-
   ngOnInit() {
+    this.initLoginModal();
+
     this.chatService.getMessages().subscribe((message: string) => {
       console.log(message);
       this.messages.push(message);
+    });
+    this.chatService.getLogin().subscribe((user: any) => {
+      console.log("You have logged in", user);
+      this.user = user;
     });
     this.chatService.getUsers().subscribe((user: any) => {
       console.log(user);
@@ -54,14 +68,9 @@ export class AppComponent implements OnInit {
     $(document).ready(function() {
       var socket = io.connect("http://localhost:3000");
 
-      socket.on("emit-new-user", function(data) {
-        console.log("got that user");
-        $("#container").fadeOut(1000);
-        $("#conversation_board").fadeIn(1000);
-        $("#messageForm").fadeIn(1000);
-        $("#title").fadeIn(1000);
+      socket.on("emit-new-login", function(user) {
+        console.log(user, " has logged in.");
         $("#user_list").fadeIn(1000);
-        $("#threadForm").fadeIn(1000);
       });
 
       socket.on("emit-new-thread", function(data) {

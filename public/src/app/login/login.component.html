@@ -1,0 +1,14 @@
+<div id="container">
+  <p>Welcome to the world's #1 messaging platform:</p>
+  <p>Your name:</p>
+  <form id="userForm" (submit)="onSubmit()">
+    <p>{{ user.name | json }}</p>
+    <input
+      type="text"
+      [(ngModel)]="user.name"
+      name="username"
+      placeholder="Username"
+    />
+    <button type="submit">OK</button>
+  </form>
+</div>

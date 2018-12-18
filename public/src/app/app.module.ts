@@ -5,15 +5,27 @@ import { HttpClientModule } from "@angular/common/http";
 
 import { AppRoutingModule } from "./app-routing.module";
 import { AppComponent } from "./app.component";
+import { LoginComponent } from "./login/login.component";
 import { ChatService } from "./services/chat.service";
-import { ThreadroomComponent } from './threadroom/threadroom.component';
-import { NavbarComponent } from './navbar/navbar.component';
-import { ThreadsComponent } from './threads/threads.component';
-import { JoinedthreadsComponent } from './joinedthreads/joinedthreads.component';
+import { ModalService } from "./services/modal.service";
+import { HttpService } from "./services/http.service";
+import { DomService } from "./services/dom.service";
+import { ThreadroomComponent } from "./threadroom/threadroom.component";
+import { NavbarComponent } from "./navbar/navbar.component";
+import { ThreadsComponent } from "./threads/threads.component";
+import { JoinedthreadsComponent } from "./joinedthreads/joinedthreads.component";
 @NgModule({
-  declarations: [AppComponent, ThreadroomComponent, NavbarComponent, ThreadsComponent, JoinedthreadsComponent],
+  declarations: [
+    AppComponent,
+    ThreadroomComponent,
+    NavbarComponent,
+    ThreadsComponent,
+    JoinedthreadsComponent,
+    LoginComponent
+  ],
   imports: [BrowserModule, AppRoutingModule, HttpClientModule, FormsModule],
-  providers: [ChatService],
+  providers: [ChatService, ModalService, HttpService, DomService],
+  entryComponents: [LoginComponent],
   bootstrap: [AppComponent]
 })
 export class AppModule {}

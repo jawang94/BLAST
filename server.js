@@ -23,6 +23,7 @@ io.on("connection", client => {
     user.id = client.id;
     console.log(user);
     io.emit("emit-new-user", user);
+    client.emit("emit-new-login", user);
   });
 
   client.on("new-message", message => {

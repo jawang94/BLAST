@@ -29,6 +29,14 @@ export class ChatService {
     });
   };
 
+  public getLogin = () => {
+    return Observable.create(observer => {
+      this.socket.on("emit-new-login", user => {
+        observer.next(user);
+      });
+    });
+  };
+
   public getUsers = () => {
     return Observable.create(observer => {
       this.socket.on("emit-new-user", user => {
