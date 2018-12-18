@@ -9,10 +9,9 @@ import { ChatService } from "./services/chat.service";
 import { ThreadroomComponent } from './threadroom/threadroom.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { ThreadsComponent } from './threads/threads.component';
-import { ActiveusersComponent } from './activeusers/activeusers.component';
 import { JoinedthreadsComponent } from './joinedthreads/joinedthreads.component';
 @NgModule({
-  declarations: [AppComponent, ThreadroomComponent, NavbarComponent, ThreadsComponent, ActiveusersComponent, JoinedthreadsComponent],
+  declarations: [AppComponent, ThreadroomComponent, NavbarComponent, ThreadsComponent, JoinedthreadsComponent],
   imports: [BrowserModule, AppRoutingModule, HttpClientModule, FormsModule],
   providers: [ChatService],
   bootstrap: [AppComponent]
