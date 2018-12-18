@@ -8,6 +8,7 @@ export class HttpService {
   constructor(private _http: HttpClient) {}
 
   public createUser(newUser) {
+    console.log("service check");
     return this._http.post("/user", newUser);
   }
 
