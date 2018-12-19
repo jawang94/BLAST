@@ -2,4 +2,16 @@
     position: absolute;
     width: 80%;
     left: 15%;
+    top: 7%;
+}
+.form-group{
+    width: 100%;
+    font-size: 20px;
+}
+.categoryselector{
+    margin-left: 1%;
+}
+.threadtitle{
+    font-size: 20px;
+    width: 21%;
 }
