@@ -1,24 +1,24 @@
-.container{
+.container {
     width: 90%;
     position: absolute;
     left: 10%;
     top: 8%;
 }
 
-.col-md-9{
+.col-md-9 {
     width: 100%;
 }
 
-h3{
+h3 {
     margin-top: 0px;
 }
 
-.img-responsive{
+.img-responsive {
     border-radius: 50%;
     width: 90px;
     height: 90px;
 }
 
-.row{
+.row {
     width: 100%;
 }

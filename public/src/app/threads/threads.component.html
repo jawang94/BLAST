@@ -7,40 +7,53 @@
 <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
 
 <div class="container">
-    <div class="col-md-9">
-      <div class="well hidden-xs"> 
-        <div class="row">
-          <div class="col-xs-4">
-            <select class="form-control">
-              <option>Featured</option>
-              <option>Recently Added</option>
-              <option>Next Upcoming Session</option>
-              <option>A-Z</option>
-              <option>Z-A</option>
-            </select>
-          </div>
+  <div class="col-md-9">
+    <div class="well hidden-xs">
+      <div class="row">
+        <div class="col-xs-4">
+          <select class="form-control">
+            <option>Featured</option>
+            <option>Recently Added</option>
+            <option>Next Upcoming Session</option>
+            <option>A-Z</option>
+            <option>Z-A</option>
+          </select>
         </div>
       </div>
-      
-      <hr>
-      <div class="row" >
-        <div class="col-sm-4"><img src="http://placehold.it/720X720" class="img-responsive">
-        </div>
-        <div class="textstuff">
-          <h3 class="title"><a [routerLink]="['/threadroom']">hello</a></h3>
-          <p>ahhhhh</p>
-          <p class="text-muted">Presented by ass</p>
-        </div>
+    </div>
+
+    <hr />
+    <div class="row" *ngFor="let thread of threads">
+      <div class="col-sm-4">
+        <img src="{{thread.imageURL}}" class="img-responsive" />
       </div>
-      <hr>
-      <ul class="pagination pagination-lg pull-right">
-        <li><a href="#">«</a></li>
-        <li><a href="#">1</a></li>
-        <li><a href="#">2</a></li>
-        <li><a href="#">3</a></li>
-        <li><a href="#">4</a></li>
-        <li><a href="#">5</a></li>
-        <li><a href="#">»</a></li>
-      </ul>
+      <div class="col-sm-8">
+        <h3 class="title">
+          <a [routerLink]="['/threadroom/', thread._id]">{{ thread.title }}</a>
+        </h3>
+        <p>{{ thread.content }}</p>
+        <p class="text-muted">Presented by {{ thread.creator }}</p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-4">
+        <img src="http://placehold.it/720X720" class="img-responsive" />
+      </div>
+      <div class="col-sm-8">
+        <h3 class="title"><a [routerLink]="['/threadroom/']">hello</a></h3>
+        <p>ahhhhh</p>
+        <p class="text-muted">Presented by Meek Mill</p>
+      </div>
+    </div>
+    <hr />
+    <ul class="pagination pagination-lg pull-right">
+      <li><a href="#">«</a></li>
+      <li class="active"><a href="#">1</a></li>
+      <li><a href="#">2</a></li>
+      <li><a href="#">3</a></li>
+      <li><a href="#">4</a></li>
+      <li><a href="#">5</a></li>
+      <li><a href="#">»</a></li>
+    </ul>
   </div>
 </div>

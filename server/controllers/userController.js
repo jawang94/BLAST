@@ -102,12 +102,64 @@ module.exports = {
         res.json({ message: "Error", error: err });
       });
   },
+  threadSearch: (req, res) => {
+    Thread.find({ category: req.body.text })
+      .then(data => {
+        res.json({ message: "Success", data: data });
+      })
+      .catch(err => {
+        res.json({ message: "Error", error: err });
+      });
+  },
+
+  threadAscending: (req, res) => {
+    Thread.find({})
+      .sort({ title: 1 })
+      .then(data => {
+        res.json({ message: "Success", data: data });
+      })
+      .catch(err => {
+        res.json({ message: "Error", error: err });
+      });
+  },
+  threadDescending: (req, res) => {
+    Thread.find({})
+      .sort({ title: -1 })
+      .then(data => {
+        res.json({ message: "Success", data: data });
+      })
+      .catch(err => {
+        res.json({ message: "Error", error: err });
+      });
+  },
+  threadAscendingTime: (req, res) => {
+    Thread.find({})
+      .sort({ timestamps: 1 })
+      .then(data => {
+        res.json({ message: "Success", data: data });
+      })
+      .catch(err => {
+        res.json({ message: "Error", error: err });
+      });
+  },
+  threadDescendingTime: (req, res) => {
+    Thread.find({})
+      .sort({ timestamps: -1 })
+      .then(data => {
+        res.json({ message: "Success", data: data });
+      })
+      .catch(err => {
+        res.json({ message: "Error", error: err });
+      });
+  },
 
   threadNew: (req, res) => {
     console.log("Controller check", req.body);
     var thread = new Thread({
       title: req.body.title,
-      category: req.body.title
+      category: req.body.category,
+      content: req.body.content,
+      imageURL: req.body.imageURL
     });
     thread
       .save()

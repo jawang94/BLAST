@@ -9,7 +9,7 @@ import { HttpService } from "../services/http.service";
   styleUrls: ["./login.component.css"]
 })
 export class LoginComponent implements OnInit {
-  user: any;
+  newUser: any;
 
   constructor(
     private chatService: ChatService,
@@ -18,12 +18,12 @@ export class LoginComponent implements OnInit {
   ) {}
 
   public onSubmit() {
-    this.chatService.register(this.user);
-    let newUserObservable = this.httpService.createUser(this.user);
+    this.chatService.register(this.newUser);
+    let newUserObservable = this.httpService.createUser(this.newUser);
     newUserObservable.subscribe(user => {
       console.log("New user registered!", user);
     });
-    this.user = { name: "", password: "" };
+    this.newUser = { name: "", password: "" };
     this.close();
   }
 
@@ -32,6 +32,6 @@ export class LoginComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.user = { name: "", password: "" };
+    this.newUser = { name: "", password: "" };
   }
 }

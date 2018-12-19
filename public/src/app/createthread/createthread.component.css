@@ -1,21 +1,41 @@
-.row{
+.row {
     position: absolute;
     width: 80%;
     left: 15%;
     top: 7%;
 }
-.form-group{
+
+.form-group {
     width: 100%;
     font-size: 20px;
 }
-.categoryselector{
+
+.categoryselector {
     margin-left: 1%;
 }
-.threadtitle{
+
+.threadtitle {
     font-size: 20px;
     width: 21%;
 }
-.threadimage{
+
+.threadImage {
+    font-size: 18px;
+    margin-top: 1%;
+}
+
+#image {
+    width: 30%;
+    font-size: 18px;
+}
+
+.threadcontent {
     font-size: 20px;
     width: 21%;
+}
+
+.contentLabel {
+    font-size: 20px;
+    font-weight: bolder;
+    margin-top: 1%;
 }
