@@ -107,7 +107,8 @@ module.exports = {
     console.log("Controller check", req.body);
     var thread = new Thread({
       title: req.body.title,
-      category: req.body.title
+      category: req.body.category,
+      imageURL: req.body.imageURL
     });
     thread
       .save()

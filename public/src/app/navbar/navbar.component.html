@@ -30,8 +30,10 @@
 
       <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
         <ul class="nav navbar-nav">
-          <li  *ngIf="user.name == ''"><a href="#">Login</a></li>
-          <li *ngIf="user.name == ''"><a href="#" (click)="initLoginModal()">Signup</a></li>
+          <li *ngIf="user.name == ''"><a href="#">Login</a></li>
+          <li *ngIf="user.name == ''">
+            <a href="#" (click)="initLoginModal()">Signup</a>
+          </li>
           <li><a [routerLink]="['createthread']">New Thread</a></li>
         </ul>
 
