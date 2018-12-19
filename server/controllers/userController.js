@@ -112,7 +112,7 @@ module.exports = {
       });
   },
 
-  threadAcending: (req, res) => {
+  threadAscending: (req, res) => {
     Thread.find({})
       .sort({ title: 1})
       .then(data => {
@@ -122,7 +122,7 @@ module.exports = {
         res.json({ message: "Error", error: err });
       });
   },
-  threadDecending: (req, res) => {
+  threadDescending: (req, res) => {
     Thread.find({})
       .sort({ title: -1})
       .then(data => {
@@ -132,7 +132,7 @@ module.exports = {
         res.json({ message: "Error", error: err });
       });
   },
-  threadAcendingTime: (req, res) => {
+  threadAscendingTime: (req, res) => {
     Thread.find({})
       .sort({ timestamps: 1})
       .then(data => {
@@ -142,7 +142,7 @@ module.exports = {
         res.json({ message: "Error", error: err });
       });
   },
-  threadDecendingTime: (req, res) => {
+  threadDescendingTime: (req, res) => {
     Thread.find({})
       .sort({ timestamps: -1})
       .then(data => {
