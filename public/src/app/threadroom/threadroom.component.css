@@ -1,11 +1,3 @@
-#wrapper {
-    width: 85%;
-    height: 85%;
-    position: absolute;
-    left: 10%;
-    top: 10%;
-}
-
 #conversation_board {
     display: none;
     background-color: antiquewhite;
