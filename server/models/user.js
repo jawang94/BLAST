@@ -6,6 +6,10 @@ const UserSchema = new mongoose.Schema({
     Required: true,
     minlength: [3, "Username must be longer than 3 characters"],
     maxlength: [16, "Username cannot be more than 16 characters long"]
+  },
+  password: {
+    type: String,
+    required: true
   }
 });
 var User = mongoose.model("User", UserSchema);
@@ -36,4 +40,4 @@ const ThreadSchema = new mongoose.Schema({
 });
 var Thread = mongoose.model("Thread", ThreadSchema);
 
-module.exports = { User, Comment, Thread };
+module.exports = [User, Thread, Comment];

@@ -2,8 +2,6 @@ import { Component, OnInit } from "@angular/core";
 import { ChatService } from "./services/chat.service";
 import * as $ from "jquery";
 import * as io from "socket.io-client";
-import { ModalService } from "./services/modal.service";
-import { LoginComponent } from "./login/login.component";
 
 @Component({
   selector: "app-root",
@@ -18,17 +16,7 @@ export class AppComponent implements OnInit {
   thread: any;
   threads: any[] = [];
 
-  constructor(
-    private chatService: ChatService,
-    private modalService: ModalService
-  ) {}
-
-  public initLoginModal() {
-    let inputs = {
-      isMobile: false
-    };
-    this.modalService.init(LoginComponent, inputs, {});
-  }
+  constructor(private chatService: ChatService) {}
 
   public sendMessage() {
     this.message.user = this.user;
@@ -42,8 +30,6 @@ export class AppComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.initLoginModal();
-
     this.chatService.getMessages().subscribe((message: string) => {
       console.log(message);
       this.messages.push(message);
@@ -61,7 +47,7 @@ export class AppComponent implements OnInit {
       this.threads.push(thread);
     });
 
-    this.user = { name: "", id: "" };
+    this.user = { name: "" };
     this.message = { content: "", user: "" };
     this.thread = { title: "", category: "", creator: "" };
 

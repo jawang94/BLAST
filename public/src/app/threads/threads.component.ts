@@ -1,15 +1,12 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit } from "@angular/core";
 
 @Component({
-  selector: 'app-threads',
-  templateUrl: './threads.component.html',
-  styleUrls: ['./threads.component.css']
+  selector: "app-threads",
+  templateUrl: "./threads.component.html",
+  styleUrls: ["./threads.component.css"]
 })
 export class ThreadsComponent implements OnInit {
+  constructor() {}
 
-  constructor() { }
-
-  ngOnInit() {
-  }
-
+  ngOnInit() {}
 }

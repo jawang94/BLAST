@@ -5,7 +5,10 @@ import { HttpClient } from "@angular/common/http";
   providedIn: "root"
 })
 export class HttpService {
-  constructor(private _http: HttpClient) {}
+  private loggedIn: boolean;
+  constructor(private _http: HttpClient) {
+    this.loggedIn = false;
+  }
 
   public createUser(newUser) {
     console.log("service check");
