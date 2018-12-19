@@ -17,9 +17,28 @@ module.exports = function(app) {
     controllers.userDelete(req, res);
   });
 
+
   app.get("/thread", function(req, res) {
     controllers.threadIndex(req, res);
   });
+
+  app.get("/thread/search", function(req, res) {
+    controllers.threadSearch(req, res);
+  });
+  app.get("/thread/ascending", function(req, res) {
+    controllers.threadAscending(req, res);
+  });
+  app.get("/thread/descending", function(req, res) {
+    controllers.threadDescending(req, res);
+  });
+  app.get("/thread/asctime", function(req, res) {
+    controllers.threadAscendingTime(req, res);
+  });
+  app.get("/thread/desctime", function(req, res) {
+    controllers.threadDescendingTime(req, res);
+  });
+
+  threadSearch
   app.get("/thread/:id", function(req, res) {
     controllers.threadShow(req, res);
   });

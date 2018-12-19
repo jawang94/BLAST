@@ -93,8 +93,58 @@ module.exports = {
   //       });
   //   },
 
-  threadIndex: (req, res) => {
+  // threadIndex: (req, res) => {
+  //   Thread.find({})
+  //     .then(data => {
+  //       res.json({ message: "Success", data: data });
+  //     })
+  //     .catch(err => {
+  //       res.json({ message: "Error", error: err });
+  //     });
+  // },
+  threadSearch: (req, res) => {
+    Thread.find({category: req.body.text})
+      .then(data => {
+        res.json({ message: "Success", data: data });
+      })
+      .catch(err => {
+        res.json({ message: "Error", error: err });
+      });
+  },
+
+  threadAscending: (req, res) => {
     Thread.find({})
+      .sort({ title: 1})
+      .then(data => {
+        res.json({ message: "Success", data: data });
+      })
+      .catch(err => {
+        res.json({ message: "Error", error: err });
+      });
+  },
+  threadDescending: (req, res) => {
+    Thread.find({})
+      .sort({ title: -1})
+      .then(data => {
+        res.json({ message: "Success", data: data });
+      })
+      .catch(err => {
+        res.json({ message: "Error", error: err });
+      });
+  },
+  threadAscendingTime: (req, res) => {
+    Thread.find({})
+      .sort({ timestamps: 1})
+      .then(data => {
+        res.json({ message: "Success", data: data });
+      })
+      .catch(err => {
+        res.json({ message: "Error", error: err });
+      });
+  },
+  threadDescendingTime: (req, res) => {
+    Thread.find({})
+      .sort({ timestamps: -1})
       .then(data => {
         res.json({ message: "Success", data: data });
       })

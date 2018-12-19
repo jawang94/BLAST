@@ -11,7 +11,9 @@ const UserSchema = new mongoose.Schema({
     type: String,
     required: true
   }
-});
+},
+{ timestamps: true }
+);
 var User = mongoose.model("User", UserSchema);
 
 const CommentSchema = new mongoose.Schema({
@@ -21,7 +23,9 @@ const CommentSchema = new mongoose.Schema({
     user: [UserSchema],
     minlength: [1, "Comments cannot be empty"]
   }
-});
+},
+{ timestamps: true }
+);
 var Comment = mongoose.model("Comment", CommentSchema);
 
 const ThreadSchema = new mongoose.Schema({
@@ -41,8 +45,10 @@ const ThreadSchema = new mongoose.Schema({
   creator: [UserSchema],
   imageURL: { type: String, required: false },
   users: [UserSchema],
-  comments: [CommentSchema]
-});
+  comments: [CommentSchema] 
+},
+{ timestamps: true }
+);
 var Thread = mongoose.model("Thread", ThreadSchema);
 
 module.exports = [User, Thread, Comment];
