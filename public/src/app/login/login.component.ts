@@ -23,7 +23,7 @@ export class LoginComponent implements OnInit {
     newUserObservable.subscribe(user => {
       console.log("New user registered!", user);
     });
-    this.user = { name: "", id: "" };
+    this.user = { name: "" };
     this.close();
   }
 
@@ -32,6 +32,6 @@ export class LoginComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.user = { name: "", id: "" };
+    this.user = { name: "" };
   }
 }

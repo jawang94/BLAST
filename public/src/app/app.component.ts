@@ -17,11 +17,14 @@ export class AppComponent implements OnInit {
   users: any[] = [];
   thread: any;
   threads: any[] = [];
+  loggedIn: boolean;
 
   constructor(
     private chatService: ChatService,
     private modalService: ModalService
-  ) {}
+  ) {
+    this.loggedIn = false;
+  }
 
   public initLoginModal() {
     let inputs = {
@@ -42,7 +45,9 @@ export class AppComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.initLoginModal();
+    if (this.loggedIn == false) {
+      this.initLoginModal();
+    }
 
     this.chatService.getMessages().subscribe((message: string) => {
       console.log(message);
@@ -51,6 +56,7 @@ export class AppComponent implements OnInit {
     this.chatService.getLogin().subscribe((user: any) => {
       console.log("You have logged in", user);
       this.user = user;
+      this.loggedIn = true;
     });
     this.chatService.getUsers().subscribe((user: any) => {
       console.log(user);
@@ -61,7 +67,7 @@ export class AppComponent implements OnInit {
       this.threads.push(thread);
     });
 
-    this.user = { name: "", id: "" };
+    this.user = { name: "" };
     this.message = { content: "", user: "" };
     this.thread = { title: "", category: "", creator: "" };
 

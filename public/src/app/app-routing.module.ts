@@ -1,5 +1,5 @@
-import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
+import { NgModule } from "@angular/core";
+import { Routes, RouterModule } from "@angular/router";
 import { NavbarComponent } from "./navbar/navbar.component";
 import { JoinedthreadsComponent } from "./joinedthreads/joinedthreads.component";
 import { ThreadroomComponent } from "./threadroom/threadroom.component";
@@ -11,13 +11,14 @@ const routes: Routes = [
     component: ThreadroomComponent
   },
   {
-    path: "thread",
+    path: "threads",
     component: ThreadsComponent
   },
-  { path: "", pathMatch: "full", redirectTo: "home" }];
+  { path: "", pathMatch: "full", redirectTo: "home" }
+];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}

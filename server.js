@@ -20,7 +20,6 @@ io.on("connection", client => {
   console.log("A new user has connected");
 
   client.on("new-user", user => {
-    user.id = client.id;
     console.log(user);
     io.emit("emit-new-user", user);
     client.emit("emit-new-login", user);
