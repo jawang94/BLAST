@@ -17,6 +17,7 @@ module.exports = {
 
   userNew: (req, res) => {
     console.log("Controller check", req.body);
+    var salt = bcrypt.genSaltSync(10);
     var hash = bcrypt.hashSync(req.body.password, salt);
     var user = new User({
       username: req.body.name,
@@ -36,8 +37,7 @@ module.exports = {
     User.find({ username: req.body.username }, function(err, user) {
       if (err) {
         res.redirect("/");
-      }
-      else if (user) {
+      } else if (user) {
         console.log(user);
         console.log(user[0].password);
         bcrypt

@@ -2,8 +2,6 @@ import { Component, OnInit } from "@angular/core";
 import { ChatService } from "./services/chat.service";
 import * as $ from "jquery";
 import * as io from "socket.io-client";
-import { ModalService } from "./services/modal.service";
-import { LoginComponent } from "./login/login.component";
 
 @Component({
   selector: "app-root",
@@ -17,21 +15,8 @@ export class AppComponent implements OnInit {
   users: any[] = [];
   thread: any;
   threads: any[] = [];
-  loggedIn: boolean;
 
-  constructor(
-    private chatService: ChatService,
-    private modalService: ModalService
-  ) {
-    this.loggedIn = false;
-  }
-
-  public initLoginModal() {
-    let inputs = {
-      isMobile: false
-    };
-    this.modalService.init(LoginComponent, inputs, {});
-  }
+  constructor(private chatService: ChatService) {}
 
   public sendMessage() {
     this.message.user = this.user;
@@ -45,10 +30,6 @@ export class AppComponent implements OnInit {
   }
 
   ngOnInit() {
-    if (this.loggedIn == false) {
-      this.initLoginModal();
-    }
-
     this.chatService.getMessages().subscribe((message: string) => {
       console.log(message);
       this.messages.push(message);
@@ -56,7 +37,6 @@ export class AppComponent implements OnInit {
     this.chatService.getLogin().subscribe((user: any) => {
       console.log("You have logged in", user);
       this.user = user;
-      this.loggedIn = true;
     });
     this.chatService.getUsers().subscribe((user: any) => {
       console.log(user);

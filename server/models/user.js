@@ -8,10 +8,8 @@ const UserSchema = new mongoose.Schema({
     maxlength: [16, "Username cannot be more than 16 characters long"]
   },
   password: {
-      type: String,
-      required: true,
-      minlength: [3, "Password must be longer than 3 characters"],
-      maxlength: [16, "password cannot be more than 16 characters long"]
+    type: String,
+    required: true
   }
 });
 var User = mongoose.model("User", UserSchema);
