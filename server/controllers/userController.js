@@ -1,7 +1,8 @@
 const mongoose = require("mongoose"),
   User = mongoose.model("User"),
   Thread = mongoose.model("Thread"),
-  Comment = mongoose.model("Comment");
+  Comment = mongoose.model("Comment"),
+  bcrypt = require("bcrypt");
 
 module.exports = {
   userIndex: (req, res) => {
@@ -16,8 +17,10 @@ module.exports = {
 
   userNew: (req, res) => {
     console.log("Controller check", req.body);
+    var hash = bcrypt.hashSync(req.body.password, salt);
     var user = new User({
-      username: req.body.name
+      username: req.body.name,
+      password: hash
     });
     user
       .save()
@@ -27,6 +30,26 @@ module.exports = {
       .catch(err => {
         res.json({ message: "Failed!", err });
       });
+  },
+
+  login: (req, res) => {
+    User.find({ username: req.body.username }, function(err, user) {
+      if (err) {
+        res.redirect("/");
+      }
+      else if (user) {
+        console.log(user);
+        console.log(user[0].password);
+        bcrypt
+          .compare(req.body.password, user[0].password)
+          .then(result => {
+            res.redirect("/home" + user[0]._id);
+          })
+          .catch(error => {
+            res.redirect("/");
+          });
+      }
+    });
   },
 
   userShow: (req, res) => {
