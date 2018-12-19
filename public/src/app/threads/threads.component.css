@@ -9,10 +9,14 @@
     width: 100%;
 }
 
+h3 {
+    margin-top: 0px;
+}
+
 .img-responsive {
     border-radius: 50%;
-    height: 85px;
-    width: 85px;
+    width: 90px;
+    height: 90px;
 }
 
 .row {

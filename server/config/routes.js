@@ -17,7 +17,6 @@ module.exports = function(app) {
     controllers.userDelete(req, res);
   });
 
-
   app.get("/thread", function(req, res) {
     controllers.threadIndex(req, res);
   });
@@ -38,7 +37,6 @@ module.exports = function(app) {
     controllers.threadDescendingTime(req, res);
   });
 
-  threadSearch
   app.get("/thread/:id", function(req, res) {
     controllers.threadShow(req, res);
   });

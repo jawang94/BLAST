@@ -93,17 +93,17 @@ module.exports = {
   //       });
   //   },
 
-  // threadIndex: (req, res) => {
-  //   Thread.find({})
-  //     .then(data => {
-  //       res.json({ message: "Success", data: data });
-  //     })
-  //     .catch(err => {
-  //       res.json({ message: "Error", error: err });
-  //     });
-  // },
+  threadIndex: (req, res) => {
+    Thread.find({})
+      .then(data => {
+        res.json({ message: "Success", data: data });
+      })
+      .catch(err => {
+        res.json({ message: "Error", error: err });
+      });
+  },
   threadSearch: (req, res) => {
-    Thread.find({category: req.body.text})
+    Thread.find({ category: req.body.text })
       .then(data => {
         res.json({ message: "Success", data: data });
       })
@@ -114,7 +114,7 @@ module.exports = {
 
   threadAscending: (req, res) => {
     Thread.find({})
-      .sort({ title: 1})
+      .sort({ title: 1 })
       .then(data => {
         res.json({ message: "Success", data: data });
       })
@@ -124,7 +124,7 @@ module.exports = {
   },
   threadDescending: (req, res) => {
     Thread.find({})
-      .sort({ title: -1})
+      .sort({ title: -1 })
       .then(data => {
         res.json({ message: "Success", data: data });
       })
@@ -134,7 +134,7 @@ module.exports = {
   },
   threadAscendingTime: (req, res) => {
     Thread.find({})
-      .sort({ timestamps: 1})
+      .sort({ timestamps: 1 })
       .then(data => {
         res.json({ message: "Success", data: data });
       })
@@ -144,7 +144,7 @@ module.exports = {
   },
   threadDescendingTime: (req, res) => {
     Thread.find({})
-      .sort({ timestamps: -1})
+      .sort({ timestamps: -1 })
       .then(data => {
         res.json({ message: "Success", data: data });
       })
