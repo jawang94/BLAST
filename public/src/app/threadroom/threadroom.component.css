@@ -77,9 +77,9 @@ p {
 
 /* chatbox css */
 
-.container{
+.threadroomcontainer{
     position: fixed;
-    top: 8%;
+    top: 10%;
     margin-left: 9.5%;
     margin-right: 10%;
     display: inline-block;
@@ -87,6 +87,12 @@ p {
     height: 100%;
     bottom:0;
     overflow-y: scroll;
+}
+#chat_window_1{
+    position: fixed;
+    top: 8%;
+    left: 11%;
+    width: 75%;
 }
 body{
     height:100%;

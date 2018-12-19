@@ -11,7 +11,7 @@ const routes: Routes = [
     component: ThreadroomComponent
   },
   {
-    path: "threads",
+    path: "home",
     component: ThreadsComponent
   },
   { path: "", pathMatch: "full", redirectTo: "home" }

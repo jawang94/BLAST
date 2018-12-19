@@ -8,11 +8,6 @@
 
   <body>
     <app-navbar [user]="user"></app-navbar>
-    <a
-      [routerLink]="['threads']"
-      style="position: absolute; left: 40%; top: 30%;"
-      >Go to threads</a
-    >
     <router-outlet></router-outlet>
     <app-joinedthreads></app-joinedthreads>
   </body>

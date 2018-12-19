@@ -8,7 +8,7 @@
 <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
 <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
 
-<div class="container">
+<div class="threadroomcontainer">
     <h1 id="title">Conversation Board</h1>
     <div id="conversation_board">
       <p *ngFor="let message of messages">
@@ -42,10 +42,10 @@
             </h3>
           </div>
         </div>
-        <div class="panel-body msg_container_base">
+        <div class="panel-body msg_container_base" *ngIf="message.user.id == loggedInUser">
           <div class="row msg_container base_sent">
             <div class="col-md-10 col-xs-10">
-              <div class="messages msg_sent">
+              <div class="messages msg_sent" >
                 <p>{{ user.messageSent }}</p>
                 <time>{{ user.name }}@{{ message.createdAt }}</time>
               </div>
@@ -57,7 +57,7 @@
               />
             </div>
           </div>
-          <div class="row msg_container base_receive">
+          <div class="row msg_container base_receive" *ngIf="message.user.id != loggedInUser">
             <div class="col-md-2 col-xs-2 avatar">
               <img
                 src="http://www.bitrebels.com/wp-content/uploads/2011/02/Original-Facebook-Geek-Profile-Avatar-1.jpg"
@@ -67,13 +67,13 @@
             <div class="col-md-10 col-xs-10">
               <div class="messages msg_receive">
                 <p>{{ thread.message }}</p>
-                <time datetime="2009-11-13T20:00">{{ message.writer.name }}@{{ message.createdAt }}</time>
+                <time datetime="2009-11-13T20:00">{{ message.user.name }}@{{ message.createdAt }}</time>
               </div>
             </div>
           </div>
         </div>
         <div class="panel-footer">
-          <div class="input-group">
+          <div class="input-group" *ngIf="loggedInUser == true">
             <input
               id="btn-input"
               type="text"
@@ -87,11 +87,10 @@
         </div>
       </div>
   </div>
-
+</div>
   <!-- Active user thing -->
 
   <div class="sidenav">
     <p>Active Users</p>
     <a href="#">User1</a> <a href="#">User2</a> <a href="#">User3</a>
   </div>
-</div>

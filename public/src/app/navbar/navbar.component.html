@@ -25,13 +25,14 @@
   <nav class="navbar navbar-default">
     <div class="container-fluid">
       <div class="navbar-header">
-        <a class="navbar-brand" href="#">App Name Here</a>
+        <a class="navbar-brand" [routerLink]="['/']">BLAST</a>
       </div>
 
       <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
         <ul class="nav navbar-nav">
-          <li><a href="#">Login</a></li>
-          <li><a href="#" (click)="initLoginModal()">Signup</a></li>
+          <li  *ngIf="user.name == ''"><a href="#">Login</a></li>
+          <li *ngIf="user.name == ''"><a href="#" (click)="initLoginModal()">Signup</a></li>
+          <li><a [routerLink]="['createthread']">New Thread</a></li>
         </ul>
 
         <form class="navbar-form navbar-right">

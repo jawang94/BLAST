@@ -24,12 +24,12 @@
       
       <hr>
       <div class="row" >
-        <div class="col-sm-4"><a href="#" class=""><img src="http://placehold.it/720X720" class="img-responsive"></a>
+        <div class="col-sm-4"><img src="http://placehold.it/720X720" class="img-responsive">
         </div>
         <div class="col-sm-8">
-          <h3 class="title">{{ thread.title }} hello</h3>
-          <p>{{ thread.demotext }} ahhhhh</p>
-          <p class="text-muted">Presented by <a href="#">{{ thread.writer }} yes</a></p>
+          <h3 class="title"><a [routerLink]="['/threadroom/:id']">hello</a></h3>
+          <p>ahhhhh</p>
+          <p class="text-muted">Presented by {{ thread.writer }} </p>
         </div>
       </div>
       <hr>
