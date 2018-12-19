@@ -1,3 +1,36 @@
-<p>
-  createthread works!
-</p>
+<div class="container contact-form">
+  <form method="post">
+      <h3>Create Thread</h3>
+      <div class="row">
+          <div class="col-md-6">
+              <div class="form-group">
+                <label for="catefory">Categories:</label>
+                <select class="form-control" id="category">
+                  <option>Auto</option>
+                  <option>Business + Finance</option>
+                  <option>Entertainment</option>
+                  <option>Fashion</option>
+                  <option>Food</option>
+                  <option>Gaming</option>
+                  <option>Politics</option>
+                  <option>Science</option>
+                  <option>Sports</option>
+                  <option>Tech</option>
+                  <option>Misc</option>
+                </select>
+              </div>
+              <div class="form-group">
+                  <input type="text" name="threadtitle" class="form-control" placeholder="Thread Title" value="" />
+              </div>
+              <div class="col-md-6">
+                  <div class="form-group">
+                      <textarea name="threadcontent" class="form-control" placeholder="Content" style="width: 100%; height: 300px;"></textarea>
+                  </div>
+              </div>
+              <div class="form-group">
+                  <input type="submit" name="btnSubmit" class="btnContact" value="Start Thread" />
+              </div>
+          </div>
+      </div>
+  </form>
+</div>

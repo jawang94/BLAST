@@ -4,11 +4,16 @@ import { NavbarComponent } from "./navbar/navbar.component";
 import { JoinedthreadsComponent } from "./joinedthreads/joinedthreads.component";
 import { ThreadroomComponent } from "./threadroom/threadroom.component";
 import { ThreadsComponent } from "./threads/threads.component";
+import { CreatethreadComponent } from "./createthread/createthread.component";
 
 const routes: Routes = [
   {
     path: "threadroom",
     component: ThreadroomComponent
+  },
+  {
+    path: "createthread",
+    component: CreatethreadComponent
   },
   {
     path: "home",
