@@ -34,7 +34,12 @@ const ThreadSchema = new mongoose.Schema({
     type: String,
     required: true
   },
-  imageUrl: { type: String, required: false },
+  content: {
+    type: String,
+    required: true
+  },
+  creator: [UserSchema],
+  imageURL: { type: String, required: false },
   users: [UserSchema],
   comments: [CommentSchema]
 });

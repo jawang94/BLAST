@@ -108,6 +108,7 @@ module.exports = {
     var thread = new Thread({
       title: req.body.title,
       category: req.body.category,
+      content: req.body.content,
       imageURL: req.body.imageURL
     });
     thread

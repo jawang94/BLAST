@@ -1,5 +1,41 @@
-.form-group{
+.row {
     position: absolute;
     width: 80%;
     left: 15%;
+    top: 7%;
+}
+
+.form-group {
+    width: 100%;
+    font-size: 20px;
+}
+
+.categoryselector {
+    margin-left: 1%;
+}
+
+.threadtitle {
+    font-size: 20px;
+    width: 21%;
+}
+
+.threadImage {
+    font-size: 18px;
+    margin-top: 1%;
+}
+
+#image {
+    width: 30%;
+    font-size: 18px;
+}
+
+.threadcontent {
+    font-size: 20px;
+    width: 21%;
+}
+
+.contentLabel {
+    font-size: 20px;
+    font-weight: bolder;
+    margin-top: 1%;
 }

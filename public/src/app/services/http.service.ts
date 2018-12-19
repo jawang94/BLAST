@@ -20,6 +20,10 @@ export class HttpService {
     return this._http.post("/thread", newThread);
   }
 
+  public getThreads() {
+    return this._http.get("/thread");
+  }
+
   public getUsers() {
     return this._http.get("/user");
   }

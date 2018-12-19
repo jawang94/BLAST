@@ -1,18 +1,21 @@
 <div id="container">
-  <p>Welcome to the world's #1 messaging platform:</p>
-  <p>Your name:</p>
+  <h4>Welcome to the world's #1 messaging platform:</h4>
   <form id="userForm" (submit)="onSubmit()">
-    <p>{{ user.name | json }}</p>
+    <p>{{ newUser | json }}</p>
+    <label for="name">Name: </label>
     <input
       type="text"
-      [(ngModel)]="user.name"
-      name="username"
+      id="name"
+      [(ngModel)]="newUser.name"
+      name="newUser.name"
       placeholder="Enter a username"
     />
+    <label for="password">Password: </label>
     <input
-      type="text"
-      [(ngModel)]="user.password"
-      name="password"
+      type="password"
+      id="password"
+      [(ngModel)]="newUser.password"
+      name="newUser.password"
       placeholder="Enter a password"
     />
     <button type="submit">OK</button>

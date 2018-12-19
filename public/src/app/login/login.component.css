@@ -1,20 +1,18 @@
-.sample-container {
-    display: grid;
-    grid-template-columns: 1fr;
+#container {
+    padding: 5%;
+    margin: 0 auto;
 }
 
-.sample-text {
-    color: black;
-    font-size: 20px;
-    text-align: center;
+label {
+    margin-top: 5%;
 }
 
-.sample-close {
-    text-align: center;
+input, label, button {
+    margin: 0 auto;
+    display: block;
 }
 
-.sample-close button {
-    width: 200px;
-    height: 200px;
-    color: tomato;
+button {
+    width: 50%;
+    margin-top: 1%
 }
