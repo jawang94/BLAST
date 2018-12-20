@@ -1,18 +1,30 @@
 .container {
-    width: 91%;
+    width: 92%;
     position: absolute;
-    left: 9.5%;
-    top: 6%;
+    left: 9%;
+    top: 6.15%;
+    padding: 0;
+    margin: 0;
 }
 
 .col-md-9 {
     width: 100%;
+    height: auto;
+    margin-top: -1%;
+}
+
+.col-sm-8 {
+    width: 40%;
 }
 
 .top-bar {
     background-color: #8b9dc3;
     padding: 1.5%;
-    border-radius: 20px;
+    border-radius: 10px;
+}
+
+.form-control {
+    border: 1px solid black;
 }
 
 h3 {
@@ -29,15 +41,15 @@ p.text-muted, a {
     border-radius: 50%;
     width: 90px;
     height: 90px;
+    box-shadow: 1px 1px 5px 3px #888888;
 }
 
 .row {
     width: 100%;
-    margin: 0 0 1% 0;
 }
 
-.box {
-    border-bottom: 1px solid grey;
+.addMargin {
+    margin: 0 0 0 .5%;
 }
 
 .button-wrap {

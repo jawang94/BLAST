@@ -22,8 +22,8 @@
       </div>
     </div>
 
-    <hr />
-    <div class="row box" *ngFor="let thread of threads">
+    <div class="row box addMargin" *ngFor="let thread of threads">
+      <hr />
       <div class="col-sm-4">
         <img src="{{thread.imageURL}}" class="img-responsive" />
       </div>
@@ -50,6 +50,7 @@
     </div>
 
     <hr />
+
     <ul class="pagination pagination-lg pull-right">
       <li><a href="#">«</a></li>
       <li class="active"><a href="#">1</a></li>
