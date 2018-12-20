@@ -56,5 +56,8 @@ export class JoinedthreadsComponent implements OnInit {
     this.chatService.getLogin().subscribe((user: any) => {
       this.getAllThreads();
     });
+    this.chatService.getSubscription().subscribe((item: any) => {
+      this.getAllThreads();
+    });
   }
 }

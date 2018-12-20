@@ -15,6 +15,7 @@ export class ThreadroomComponent implements OnInit {
   messages: any[] = [];
   users: any[] = [];
   paramID: any;
+  thread: any;
 
   constructor(
     private _route: ActivatedRoute,
@@ -41,6 +42,15 @@ export class ThreadroomComponent implements OnInit {
     });
   }
 
+  public getThread() {
+    let threadObservable = this.httpService.findThread(this.paramID);
+    threadObservable.subscribe(data => {
+      console.log("thread data", data);
+      this.thread = data["data"][0];
+      console.log(this.thread);
+    });
+  }
+
   ngOnInit() {
     this.getUser();
 
@@ -48,6 +58,7 @@ export class ThreadroomComponent implements OnInit {
       console.log("The param id is", params["id"]);
       this.paramID = params["id"];
       this.joinRoom(this.paramID);
+      this.getThread();
     });
 
     this.chatService.getMessages().subscribe((message: string) => {

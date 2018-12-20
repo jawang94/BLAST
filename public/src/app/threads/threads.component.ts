@@ -37,6 +37,7 @@ export class ThreadsComponent implements OnInit {
       threadID
     );
     subscribeObservable.subscribe(data => {
+      this.chatService.subscribe();
       console.log("Subscription successful", data);
     });
   }
