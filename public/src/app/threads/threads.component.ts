@@ -9,6 +9,7 @@ import { ChatService } from "../services/chat.service";
 })
 export class ThreadsComponent implements OnInit {
   threads: any;
+  user: any;
 
   constructor(
     private httpService: HttpService,
@@ -22,8 +23,27 @@ export class ThreadsComponent implements OnInit {
     });
   }
 
+  public getUser() {
+    let userObservable = this.httpService.getLogin();
+    userObservable.subscribe(user => {
+      console.log("got the user", user);
+      this.user = user[0];
+    });
+  }
+
+  public subscribe(threadID) {
+    let subscribeObservable = this.httpService.subscribeThread(
+      this.user,
+      threadID
+    );
+    subscribeObservable.subscribe(data => {
+      console.log("Subscription successful", data);
+    });
+  }
+
   ngOnInit() {
     this.getThreads();
+    this.getUser();
 
     this.chatService.getThreads().subscribe((thread: string) => {
       let threadsObservable = this.httpService.getThreads();

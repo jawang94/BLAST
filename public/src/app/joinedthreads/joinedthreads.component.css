@@ -59,3 +59,21 @@
   font-weight: bolder;
   font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
+
+.img-responsive {
+  border-radius: 50%;
+  width: 90px;
+  height: 90px;
+  box-shadow: 1px 1px 5px 3px #888888;
+  display: block;
+  margin: 0 auto;
+}
+
+.img-responsive:hover {
+  box-shadow: 1px 1px 5px 6px #3b5998;
+  transition: 0.2s
+}
+
+.img {
+  margin: 10% 0 10% 0;
+}
