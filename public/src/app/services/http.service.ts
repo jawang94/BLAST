@@ -40,4 +40,12 @@ export class HttpService {
   public getLogin() {
     return this._http.get("/login");
   }
+
+  public subscribeThread(user, threadID) {
+    return this._http.put("/thread/" + threadID, user);
+  }
+
+  public getUserThreads(user) {
+    return this._http.get("/user/threads" + user._id);
+  }
 }

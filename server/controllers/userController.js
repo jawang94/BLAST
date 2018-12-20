@@ -15,6 +15,10 @@ module.exports = {
       });
   },
 
+  userThreads: (req, res) => {
+    User.find({ _id: req.params.id }, { threads: 1 });
+  },
+
   userNew: (req, res) => {
     console.log("Controller check", req.body);
     var salt = bcrypt.genSaltSync(10);
@@ -90,24 +94,32 @@ module.exports = {
       });
   },
 
-  //   userUpdate: (req, res) => {
-  //     console.log("got that edit request", req.body);
-  //     User.updateOne(
-  //       { _id: req.params.id },
-  //       {
-  //         $set: {
-  //           username: req.body.username,
-  //         }
+  // userUpdate: (req, res) => {
+  //   console.log("got that edit request", req.body);
+  //   User.find({ _id: req.params.id })
+  //     .then(data => {
+  //       if (!data.threads.includes(req.body.thread)) {
+  //         User.updateOne(
+  //           { _id: req.params.id },
+  //           {
+  //             $push: {
+  //               threads: req.body.thread
+  //             }
+  //           }
+  //         )
+  //           .then(data => {
+  //             res.json({ message: "Success!", data });
+  //           })
+  //           .catch(err => {
+  //             console.log("Returned error", err);
+  //             res.json({ message: "Error", error: err });
+  //           });
   //       }
-  //     )
-  //       .then(data => {
-  //         res.json({ message: "Success!", data });
-  //       })
-  //       .catch(err => {
-  //         console.log("Returned error", err);
-  //         res.json({ message: "Error", error: err });
-  //       });
-  //   },
+  //     })
+  //     .catch(err => {
+  //       res.json({ message: "Error", error: err });
+  //     });
+  // },
 
   //   userDelete: (req, res) => {
   //     console.log("Delete Controller Check");
@@ -228,8 +240,8 @@ module.exports = {
     Thread.updateOne(
       { _id: req.params.id },
       {
-        $set: {
-          Threadname: req.body.Threadname
+        $push: {
+          users: req.body
         }
       }
     )

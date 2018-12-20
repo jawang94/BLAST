@@ -1,4 +1,11 @@
 <div class="sidenav">
   <p id="title">YOUR BLASTS</p>
-  <a [routerLink]="['threadroom']">Temporary Thread</a>
+  <div *ngFor="let thread of userThreads" class="img">
+    <a [routerLink]="['threadroom/', thread._id]">
+      <img
+        src="{{thread.imageURL}}"
+        alt="Thread Room Image"
+        class="img-responsive"
+    /></a>
+  </div>
 </div>
