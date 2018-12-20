@@ -21,6 +21,7 @@
     background-color: #8b9dc3;
     padding: 1.5%;
     border-radius: 10px;
+    vertical-align: top;
 }
 
 .form-control {
@@ -50,6 +51,10 @@ p.text-muted, a {
 
 .addMargin {
     margin: 0 0 0 .5%;
+}
+
+.addRight {
+    margin-right: 1%;
 }
 
 .button-wrap {
