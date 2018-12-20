@@ -32,6 +32,7 @@ export class ThreadroomComponent implements OnInit {
 
   public joinRoom(id) {
     this.chatService.joinRoom(id);
+    this.messages = [];
   }
 
   public getUser() {
