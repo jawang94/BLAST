@@ -13,7 +13,7 @@
   /* Stay at the top */
   left: 0;
   margin-top: 52px;
-  background-color: black;
+  background-color: #dfe3ee;
   /* Black */
   overflow-x: hidden;
   /* Disable horizontal scroll */
@@ -34,7 +34,7 @@
 /* When you mouse over the navigation links, change their color */
 
 .sidenav a:hover {
-  color: #f1f1f1;
+  color: #3b5998;
 }
 
 /* Style page content */
@@ -56,8 +56,8 @@
   }
 }
 
-p {
-  color: #f1f1f1;
+#title {
+  color: #484747;
   font-size: 24px;
   text-decoration: underline;
 }
