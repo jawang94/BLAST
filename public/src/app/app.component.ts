@@ -36,8 +36,10 @@ export class AppComponent implements OnInit {
   public isLoggedIn() {
     let loginObservable = this.httpService.getLogin();
     loginObservable.subscribe(data => {
-      console.log("is logged in data", data);
-      this.user = data[0];
+      console.log(data, "is logged in");
+      if (data) {
+        this.user = data[0];
+      }
     });
   }
 
