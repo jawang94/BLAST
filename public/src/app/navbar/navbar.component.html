@@ -25,18 +25,15 @@
   <nav class="navbar navbar-default">
     <div class="container-fluid">
       <div class="navbar-header">
-        <a class="navbar-brand" [routerLink]="['/']">BLAST</a>
+        
       </div>
 
       <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
         <ul class="nav navbar-nav">
+          <li><a id="brand" [routerLink]="['/']">BLAST</a></li>
           <li *ngIf="user == null"><a (click)="initLoginModal()">Login</a></li>
-          <li *ngIf="user == null">
-            <a (click)="initSignupModal()">Signup</a>
-          </li>
-          <li *ngIf="user != null">
-            <a [routerLink]="['createthread']">New Thread</a>
-          </li>
+          <li *ngIf="user == null"><a (click)="initSignupModal()">Signup</a></li>
+          <li *ngIf="user != null"><a [routerLink]="['createthread']">New Thread</a></li>
           <li *ngIf="user != null"><a (click)="logoutUser()">Logout</a></li>
         </ul>
 
