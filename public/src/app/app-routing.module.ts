@@ -8,7 +8,7 @@ import { CreatethreadComponent } from "./createthread/createthread.component";
 
 const routes: Routes = [
   {
-    path: "threadroom",
+    path: "threadroom/:id",
     component: ThreadroomComponent
   },
   {

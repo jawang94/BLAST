@@ -192,7 +192,21 @@ module.exports = {
     thread
       .save()
       .then(item => {
-        res.json({ message: "Success", item });
+        Thread.updateOne(
+          { _id: item._id },
+          {
+            $push: {
+              creator: req.body.creator
+            }
+          }
+        )
+          .then(data => {
+            res.json({ message: "Success", data });
+          })
+          .catch(err => {
+            console.log("Error!");
+            res.json({ message: "Failed to create thread", error: err });
+          });
       })
       .catch(err => {
         res.json({ message: "Failed!", err });

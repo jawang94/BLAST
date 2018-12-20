@@ -32,20 +32,13 @@
           <a [routerLink]="['/threadroom/', thread._id]">{{ thread.title }}</a>
         </h3>
         <p>{{ thread.content }}</p>
-        <p class="text-muted">Presented by {{ thread.creator }}</p>
-      <br>
+        <p class="text-muted" *ngFor="let creator of thread.creator">
+          Presented by {{ creator.username }}
+        </p>
+        <br />
       </div>
     </div>
-    <div class="row">
-      <div class="col-sm-4">
-        <img src="http://placehold.it/720X720" class="img-responsive" />
-      </div>
-      <div class="col-sm-8">
-        <h3 class="title"><a [routerLink]="['/threadroom/']">hello</a></h3>
-        <p>ahhhhh</p>
-        <p class="text-muted">Presented by Meek Mill</p>
-      </div>
-    </div>
+
     <hr />
     <ul class="pagination pagination-lg pull-right">
       <li><a href="#">«</a></li>

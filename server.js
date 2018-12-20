@@ -25,8 +25,23 @@ const io = socketIO(server);
 
 const port = process.env.PORT || 3000;
 
+var joinedRooms = [];
 io.on("connection", client => {
   console.log("A new user has connected");
+
+  client.on("join-room", roomID => {
+    client.leave(joinedRooms[0]);
+    console.log("Joining room-", roomID);
+    joinedRooms.push("room-" + roomID);
+    client.join("room-" + roomID);
+  });
+
+  client.on("leave-room", () => {
+    console.log("leaving room");
+    joinedRooms.forEach(room => {
+      client.leave(room);
+    });
+  });
 
   client.on("new-user", user => {
     console.log(user);
@@ -43,7 +58,7 @@ io.on("connection", client => {
 
   client.on("new-message", message => {
     console.log(message);
-    io.emit("emit-new-message", message);
+    io.to("room-" + message.id).emit("emit-new-message", message);
   });
 
   client.on("new-thread", thread => {

@@ -9,6 +9,14 @@ export class ChatService {
     this.socket = io(this.url);
   }
 
+  public joinRoom(id) {
+    this.socket.emit("join-room", id);
+  }
+
+  public leaveRoom() {
+    this.socket.emit("leave-room");
+  }
+
   public sendMessage(message) {
     this.socket.emit("new-message", message);
   }
