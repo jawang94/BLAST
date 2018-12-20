@@ -8,7 +8,7 @@ app.use(
     secret: "blastsecretherokey",
     resave: false,
     saveUninitialized: true,
-    cookie: { maxAge: 60000 }
+    cookie: { maxAge: 600000 }
   })
 );
 
@@ -31,7 +31,8 @@ io.on("connection", client => {
 
   client.on("join-room", roomID => {
     client.leave(joinedRooms[0]);
-    console.log("Joining room-", roomID);
+    joinedRooms.pop();
+    console.log("Joining room-" + roomID);
     joinedRooms.push("room-" + roomID);
     client.join("room-" + roomID);
   });
