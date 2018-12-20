@@ -67,6 +67,10 @@ io.on("connection", client => {
     io.emit("emit-new-thread", thread);
   });
 
+  client.on("new-subscription", () => {
+    client.emit("emit-new-subscription");
+  });
+
   //   client.on("message", handleMessage);
 
   //   client.on("threadrooms", handleGetThreadRooms);

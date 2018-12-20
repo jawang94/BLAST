@@ -37,6 +37,10 @@ export class ChatService {
     this.socket.emit("new-logout", user);
   };
 
+  public subscribe = () => {
+    this.socket.emit("new-subscription");
+  };
+
   public getMessages = () => {
     return Observable.create(observer => {
       this.socket.on("emit-new-message", message => {
@@ -73,6 +77,14 @@ export class ChatService {
     return Observable.create(observer => {
       this.socket.on("emit-new-thread", thread => {
         observer.next(thread);
+      });
+    });
+  };
+
+  public getSubscription = () => {
+    return Observable.create(observer => {
+      this.socket.on("emit-new-thread", () => {
+        observer.next("sub");
       });
     });
   };
