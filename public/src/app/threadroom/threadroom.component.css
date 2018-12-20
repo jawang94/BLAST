@@ -1,4 +1,4 @@
-#threadRoomContainer {
+/* #threadRoomContainer {
     position: absolute;
     left: 20%;
     top: 10%;
@@ -20,7 +20,7 @@
     padding: 1%;
     background-color: azure;
     text-align: center;
-}
+} */
 
 p {
     display: block;
@@ -28,43 +28,40 @@ p {
 
 /* The sidebar menu */
 
-.sidenav {
+.sidenavright {
     height: 100%;
     /* Full-height: remove this if you want "auto" height */
-    width: 10%;
+    width: 13%;
     /* Set the width of the sidebar */
     position: fixed;
     /* Fixed Sidebar (stay in place on scroll) */
-    z-index: 1;
-    /* Stay on top */
-    top: 0;
+    top: 0.5%;
     /* Stay at the top */
-    left: 90%;
-    margin-top: 52px;
-    background-color: black;
-    /* Black */
+    left: 87%;
+    margin-top: 4.3%;
+    background-color: #E8E6E5;
     overflow-x: hidden;
     /* Disable horizontal scroll */
-    padding-top: 20px;
+    padding: 1%;
+    text-align: center;
+    border-radius: 20px;
     display: inline-block;
 }
 
 /* The navigation menu links */
 
-.sidenav h6 {
+.sidenavright h6 {
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     padding: 6px 8px 6px 16px;
     text-decoration: none;
-    font-size: 25px;
-    color: #818181;
+    font-size: 20px;
+    color: black;
     display: block;
     text-align: left;
 }
 
 /* When you mouse over the navigation links, change their color */
 
-.sidenav h6:hover {
-    color: #f1f1f1;
-}
 
 /* Style page content */
 
@@ -77,18 +74,19 @@ p {
 /* On smaller screens, where height is less than 450px, change the style of the sidebar (less padding and a smaller font size) */
 
 @media screen and (max-height: 450px) {
-    .sidenav {
+    .sidenavright {
         padding-top: 15px;
     }
-    .sidenav a {
+    .sidenavright a {
         font-size: 18px;
     }
 }
 
-.sidenav p {
-    color: #f1f1f1;
+.sidenavright p {
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    color: black;
     font-size: 24px;
-    text-decoration: underline;
+    font-weight: bold;
 }
 
 /* chatbox css */
@@ -99,17 +97,24 @@ p {
     margin-left: 9.5%;
     margin-right: 10%;
     display: inline-block;
-    width: 80%;
+    width: 60%;
     height: 100%;
     bottom: 0;
-    overflow-y: scroll;
 }
 
 #chat_window_1 {
     position: fixed;
-    top: 8%;
-    left: 11%;
-    width: 75%;
+    top: 10%;
+    left: 15%;
+    width: 70%;
+    height: 400px;
+}
+
+.col-xs-12 .col-md-12{
+    height: 300px;
+}
+p{
+    width: 100%;
 }
 
 body {
@@ -130,9 +135,12 @@ body {
     margin-left: 10%;
     margin-right: 10%;
     display: inline-block;
-    width: 100%;
+    width: 60%;
     height: 100%;
     bottom: 0;
+}
+.col-md-8, .col-xs-8{
+    width: 100%;
 }
 
 .chat-window>div>.panel {
@@ -159,32 +167,25 @@ body {
     overflow: hidden;
 }
 
-.msg_receive {
-    padding-left: 0;
-    margin-left: 0;
+.panel-footer{
 }
 
-.msg_sent {
-    padding-bottom: 20px !important;
-    margin-right: 0;
-}
-
-.messages {
+#messagecontent {
     background: white;
-    padding: 10px;
     border-radius: 2px;
+    height: 600px;
     box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
     max-width: 100%;
-}
-
-.messages>p {
-    font-size: 13px;
+    font-size: 18px;
     margin: 0 0 0.2rem 0;
+    overflow-y: scroll;
+    position: relative;
+    bottom: 0;
 }
 
-.messages>time {
-    font-size: 11px;
-    color: #ccc;
+.messagecontent p {
+    position: relative;
+    bottom: 0;
 }
 
 .msg_container {

@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from "@angular/core";
+import { AfterViewChecked, ElementRef, ViewChild, Component, OnInit, Input } from "@angular/core";
 import { ChatService } from "../services/chat.service";
 import { HttpService } from "../services/http.service";
 import * as io from "socket.io-client";
@@ -10,6 +10,7 @@ import { ActivatedRoute, Params } from "@angular/router";
   styleUrls: ["./threadroom.component.css"]
 })
 export class ThreadroomComponent implements OnInit {
+  @ViewChild('scrollMe') private myScrollContainer: ElementRef;
   user: any;
   message: any;
   messages: any[] = [];
@@ -40,9 +41,16 @@ export class ThreadroomComponent implements OnInit {
       this.user = user[0];
     });
   }
+  
+  scrollToBottom(): void {
+    try {
+        this.myScrollContainer.nativeElement.scrollTop = this.myScrollContainer.nativeElement.scrollHeight;
+    } catch(err) { }                 
+  }
 
   ngOnInit() {
     this.getUser();
+    this.scrollToBottom();
 
     this._route.params.subscribe((params: Params) => {
       console.log("The param id is", params["id"]);
