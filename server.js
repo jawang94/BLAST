@@ -2,6 +2,15 @@ const express = require("express");
 const app = express();
 const bodyParser = require("body-parser");
 const path = require("path");
+const session = require("express-session");
+app.use(
+  session({
+    secret: "blastsecretherokey",
+    resave: false,
+    saveUninitialized: true,
+    cookie: { maxAge: 60000 }
+  })
+);
 
 const mongoose = require("mongoose");
 mongoose.Promise = global.Promise;
@@ -22,7 +31,14 @@ io.on("connection", client => {
   client.on("new-user", user => {
     console.log(user);
     io.emit("emit-new-user", user);
+  });
+
+  client.on("new-login", user => {
     client.emit("emit-new-login", user);
+  });
+
+  client.on("new-logout", user => {
+    client.emit("emit-new-logout", user);
   });
 
   client.on("new-message", message => {

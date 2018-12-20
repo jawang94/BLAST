@@ -14,7 +14,8 @@ import { ThreadroomComponent } from "./threadroom/threadroom.component";
 import { NavbarComponent } from "./navbar/navbar.component";
 import { ThreadsComponent } from "./threads/threads.component";
 import { JoinedthreadsComponent } from "./joinedthreads/joinedthreads.component";
-import { CreatethreadComponent } from './createthread/createthread.component';
+import { CreatethreadComponent } from "./createthread/createthread.component";
+import { SignupComponent } from "./signup/signup.component";
 @NgModule({
   declarations: [
     AppComponent,
@@ -23,11 +24,12 @@ import { CreatethreadComponent } from './createthread/createthread.component';
     ThreadsComponent,
     JoinedthreadsComponent,
     LoginComponent,
-    CreatethreadComponent
+    CreatethreadComponent,
+    SignupComponent
   ],
   imports: [BrowserModule, AppRoutingModule, HttpClientModule, FormsModule],
   providers: [ChatService, ModalService, HttpService, DomService],
-  entryComponents: [LoginComponent],
+  entryComponents: [LoginComponent, SignupComponent],
   bootstrap: [AppComponent]
 })
 export class AppModule {}

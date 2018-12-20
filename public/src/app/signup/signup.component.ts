@@ -4,12 +4,12 @@ import { ModalService } from "../services/modal.service";
 import { HttpService } from "../services/http.service";
 
 @Component({
-  selector: "app-login",
-  templateUrl: "./login.component.html",
-  styleUrls: ["./login.component.css"]
+  selector: "app-signup",
+  templateUrl: "./signup.component.html",
+  styleUrls: ["./signup.component.css"]
 })
-export class LoginComponent implements OnInit {
-  userLogin: any;
+export class SignupComponent implements OnInit {
+  newUser: any;
 
   constructor(
     private chatService: ChatService,
@@ -18,11 +18,12 @@ export class LoginComponent implements OnInit {
   ) {}
 
   public onSubmit() {
-    let userLoginObservable = this.httpService.loginUser(this.userLogin);
-    userLoginObservable.subscribe(data => {
-      console.log(data, " has logged in.");
-      this.chatService.login(data["data"]);
+    this.chatService.register(this.newUser);
+    let newUserObservable = this.httpService.createUser(this.newUser);
+    newUserObservable.subscribe(data => {
+      console.log("New user registered!", data["item"]);
     });
+    this.newUser = { name: "", password: "" };
     this.close();
   }
 
@@ -35,6 +36,6 @@ export class LoginComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.userLogin = { name: "", password: "" };
+    this.newUser = { name: "", password: "" };
   }
 }

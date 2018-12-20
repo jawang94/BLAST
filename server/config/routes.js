@@ -16,7 +16,15 @@ module.exports = function(app) {
   app.delete("/user/delete/:id", function(req, res) {
     controllers.userDelete(req, res);
   });
-
+  app.post("/login", function(req, res) {
+    controllers.userLogin(req, res);
+  });
+  app.get("/login", function(req, res) {
+    controllers.getLogin(req, res);
+  });
+  app.get("/logout", function(req, res) {
+    controllers.logout(req, res);
+  });
   app.get("/thread", function(req, res) {
     controllers.threadIndex(req, res);
   });

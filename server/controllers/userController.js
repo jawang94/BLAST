@@ -33,8 +33,8 @@ module.exports = {
       });
   },
 
-  login: (req, res) => {
-    User.find({ username: req.body.username }, function(err, user) {
+  userLogin: (req, res) => {
+    User.find({ username: req.body.name }, function(err, user) {
       if (err) {
         res.redirect("/");
       } else if (user) {
@@ -42,18 +42,46 @@ module.exports = {
         console.log(user[0].password);
         bcrypt
           .compare(req.body.password, user[0].password)
-          .then(result => {
-            res.redirect("/home" + user[0]._id);
+          .then(data => {
+            console.log("data looks like this:", data);
+            if (req.session.loginID) {
+              res.json({ message: "Success", data: user[0] });
+            } else {
+              req.session.loginID = user[0]._id;
+              res.json({ message: "Success", data: user[0] });
+            }
           })
-          .catch(error => {
-            res.redirect("/");
+          .catch(err => {
+            res.json({ message: "Error", error: err });
           });
       }
     });
   },
 
+  getLogin: (req, res) => {
+    User.find({ _id: req.session.loginID }, function(err, user) {
+      if (err) {
+        res.redirect("/");
+      } else if (user) {
+        if (user.length < 1) {
+          var temp = null;
+          res.json(temp);
+        } else {
+          res.json(user);
+        }
+      }
+    });
+  },
+
+  logout: (req, res) => {
+    if (req.session.loginID) {
+      req.session.loginID = null;
+      res.json(req.session.loginID);
+    }
+  },
+
   userShow: (req, res) => {
-    User.find({ _id: req.params.id })
+    User.find({ _id: req.body.id })
       .then(data => {
         res.json({ message: "Success", data: data });
       })

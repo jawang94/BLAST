@@ -30,17 +30,18 @@
 
       <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
         <ul class="nav navbar-nav">
-          <li *ngIf="user.name == ''"><a>Login</a></li>
-          <li *ngIf="user.name == ''">
-            <a (click)="initLoginModal()">Signup</a>
+          <li *ngIf="user == null"><a (click)="initLoginModal()">Login</a></li>
+          <li *ngIf="user == null">
+            <a (click)="initSignupModal()">Signup</a>
           </li>
-          <li *ngIf="user.name != ''">
+          <li *ngIf="user != null">
             <a [routerLink]="['createthread']">New Thread</a>
           </li>
+          <li *ngIf="user != null"><a (click)="logoutUser()">Logout</a></li>
         </ul>
 
         <form class="navbar-form navbar-right">
-          <span>Welcome {{ user.name }} </span>
+          <span *ngIf="user != null">Welcome {{ user.username }} </span>
           <div class="form-group">
             <input type="text" class="form-control" placeholder="Search" />
           </div>

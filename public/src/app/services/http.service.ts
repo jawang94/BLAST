@@ -5,10 +5,7 @@ import { HttpClient } from "@angular/common/http";
   providedIn: "root"
 })
 export class HttpService {
-  private loggedIn: boolean;
-  constructor(private _http: HttpClient) {
-    this.loggedIn = false;
-  }
+  constructor(private _http: HttpClient) {}
 
   public createUser(newUser) {
     console.log("service check");
@@ -29,6 +26,18 @@ export class HttpService {
   }
 
   public findUser(userID) {
-    return this._http.get("/user/", userID);
+    return this._http.get("/user/" + userID);
+  }
+
+  public loginUser(user) {
+    return this._http.post("/login", user);
+  }
+
+  public logoutUser() {
+    return this._http.get("/logout");
+  }
+
+  public getLogin() {
+    return this._http.get("/login");
   }
 }

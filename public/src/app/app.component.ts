@@ -1,5 +1,6 @@
 import { Component, OnInit } from "@angular/core";
 import { ChatService } from "./services/chat.service";
+import { HttpService } from "./services/http.service";
 import * as $ from "jquery";
 import * as io from "socket.io-client";
 
@@ -16,7 +17,10 @@ export class AppComponent implements OnInit {
   thread: any;
   threads: any[] = [];
 
-  constructor(private chatService: ChatService) {}
+  constructor(
+    private chatService: ChatService,
+    private httpService: HttpService
+  ) {}
 
   public sendMessage() {
     this.message.user = this.user;
@@ -29,13 +33,27 @@ export class AppComponent implements OnInit {
     this.chatService.createThread(this.thread);
   }
 
+  public isLoggedIn() {
+    let loginObservable = this.httpService.getLogin();
+    loginObservable.subscribe(data => {
+      console.log("is logged in data", data);
+      this.user = data[0];
+    });
+  }
+
   ngOnInit() {
+    this.isLoggedIn();
+
     this.chatService.getMessages().subscribe((message: string) => {
       console.log(message);
       this.messages.push(message);
     });
     this.chatService.getLogin().subscribe((user: any) => {
       console.log("You have logged in", user);
+      this.user = user;
+    });
+    this.chatService.getLogout().subscribe((user: any) => {
+      console.log("You have logged out", user);
       this.user = user;
     });
     this.chatService.getUsers().subscribe((user: any) => {
@@ -47,23 +65,15 @@ export class AppComponent implements OnInit {
       this.threads.push(thread);
     });
 
-    this.user = { name: "" };
     this.message = { content: "", user: "" };
     this.thread = { title: "", category: "", creator: "" };
 
     $(document).ready(function() {
       var socket = io.connect("http://localhost:3000");
 
-      socket.on("emit-new-login", function(user) {
-        console.log(user, " has logged in.");
-        $("#user_list").fadeIn(1000);
-      });
+      socket.on("emit-new-login", function(user) {});
 
-      socket.on("emit-new-thread", function(data) {
-        console.log("created new thread");
-        $("#threadForm").fadeOut(1000);
-        $("#threadList").fadeIn(1000);
-      });
+      socket.on("emit-new-thread", function(data) {});
     });
   }
 }

@@ -21,6 +21,14 @@ export class ChatService {
     this.socket.emit("new-thread", thread);
   }
 
+  public login = user => {
+    this.socket.emit("new-login", user);
+  };
+
+  public logout = user => {
+    this.socket.emit("new-logout", user);
+  };
+
   public getMessages = () => {
     return Observable.create(observer => {
       this.socket.on("emit-new-message", message => {
@@ -32,6 +40,14 @@ export class ChatService {
   public getLogin = () => {
     return Observable.create(observer => {
       this.socket.on("emit-new-login", user => {
+        observer.next(user);
+      });
+    });
+  };
+
+  public getLogout = () => {
+    return Observable.create(observer => {
+      this.socket.on("emit-new-logout", user => {
         observer.next(user);
       });
     });
