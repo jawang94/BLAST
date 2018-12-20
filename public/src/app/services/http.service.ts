@@ -21,6 +21,10 @@ export class HttpService {
     return this._http.get("/thread");
   }
 
+  public findThread(id) {
+    return this._http.get("/thread/" + id);
+  }
+
   public getUsers() {
     return this._http.get("/user");
   }
