@@ -27,12 +27,16 @@
       <button (click)="sendMessage()">Send</button>
     </form>
   </div>
-
   <div
     class="row chat-window col-xs-5 col-md-3"
     id="chat_window_1"
     style="margin-left:10px;"
   >
+    <div class ="threadtitle">
+      <h3>Hello {{ thread.title}} </h3>
+      <br>
+      <p>Content Stuff{{ thread.content }}</p>
+    </div>
     <div class="col-xs-12 col-md-12">
       <div class="panel panel-default">
         <div class="panel-heading top-bar">
@@ -92,5 +96,5 @@
 
   <div class="sidenav">
     <p>Active Users</p>
-    <a href="#">User1</a> <a href="#">User2</a> <a href="#">User3</a>
+    <h6>users {{user.inthread}}</h6>
   </div>
