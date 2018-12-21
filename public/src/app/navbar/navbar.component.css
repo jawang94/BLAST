@@ -1,11 +1,65 @@
 .navbarcontainer {
+    float: top;
+    position:absolute;
     position: fixed;
     width: 100%;
     padding: 0%;
+    z-index: 1;
+}
+
+.container-fluid{
+    padding: 1%;
+    border-radius: 10px;
+}
+
+.navbar-form, .navbar-right{
+    width: 25%;
+    text-align: right;
+}
+
+#logo{
+    width: 4%;
+    left: 0.5%;
+    top: -1%;
+    height: auto;
+    position: absolute;
+    z-index: 0;
+}
+
+#notsoimportantspan{
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-weight: bolder;
+    font-size: 16px;
+    color: grey;
+}
+
+#idblast{
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-size: 20px;
+    color: #FF4E00;
+    font-weight: bold;
+    padding-left: 10%;
 }
 
 .hidden {
     display: none;
+}
+
+#brand{
+    color: #FF4E00;
+    font-weight: bolder;
+    font-size: 30px;
+    margin-left: 22%;
+}
+
+.otherlinks{
+    margin-left: 10%;
+}
+
+li{
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-weight: bolder;
+    font-size: 20px;
 }
 
 .show {
@@ -22,6 +76,7 @@
     text-align: center;
     box-shadow: 0px 0px 2px 1px black;
     z-index: 100;
+    border-radius: 10px;
 }
 
 #overlay {

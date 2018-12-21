@@ -7,8 +7,10 @@
   </head>
 
   <body>
-    <app-navbar [user]="user"></app-navbar>
-    <router-outlet></router-outlet>
-    <app-joinedthreads [user]="user"></app-joinedthreads>
+    <div id="homewrapper">
+      <app-navbar [user]="user"></app-navbar>
+      <router-outlet></router-outlet>
+      <app-joinedthreads [user]="user"></app-joinedthreads>
+    </div>
   </body>
 </html>
