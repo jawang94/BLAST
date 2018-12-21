@@ -20,7 +20,7 @@ import { SignupComponent } from "./signup/signup.component";
   declarations: [
     AppComponent,
     ThreadroomComponent,
-    NavbarComponent,a
+    NavbarComponent,
     ThreadsComponent,
     JoinedthreadsComponent,
     LoginComponent,
