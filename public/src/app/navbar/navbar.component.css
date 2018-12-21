@@ -18,11 +18,12 @@
 }
 
 #logo{
-    width: 3%;
-    height: auto;
+    width: 4%;
+    left: 0.5%;
     top: -1%;
+    height: auto;
     position: absolute;
-    z-index: 2;
+    z-index: 0;
 }
 
 #notsoimportantspan{
@@ -30,7 +31,6 @@
     font-weight: bolder;
     font-size: 16px;
     color: grey;
-    margin-right: 2%;
 }
 
 #idblast{
@@ -38,6 +38,7 @@
     font-size: 20px;
     color: #FF4E00;
     font-weight: bold;
+    padding-left: 10%;
 }
 
 .hidden {
@@ -48,6 +49,11 @@
     color: #FF4E00;
     font-weight: bolder;
     font-size: 30px;
+    margin-left: 22%;
+}
+
+.otherlinks{
+    margin-left: 10%;
 }
 
 li{

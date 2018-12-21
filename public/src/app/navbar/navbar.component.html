@@ -25,17 +25,15 @@
   <nav class="navbar navbar-default">
     <div class="container-fluid">
       <div class="navbar-header">
-        
       </div>
-
       <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
         <img id="logo" src="../../assets/images/bazookathing02.png">
         <ul class="nav navbar-nav">
           <li><a id="brand" [routerLink]="['/']">BLAST</a></li>
-          <li *ngIf="user == null"><a (click)="initLoginModal()">Login</a></li>
-          <li *ngIf="user == null"><a (click)="initSignupModal()">Signup</a></li>
-          <li *ngIf="user != null"><a [routerLink]="['createthread']">New Thread</a></li>
-          <li *ngIf="user != null"><a (click)="logoutUser()">Logout</a></li>
+          <li *ngIf="user == null"><a class="otherlinks" (click)="initLoginModal()">Login</a></li>
+          <li *ngIf="user == null"><a class="otherlinks" (click)="initSignupModal()">Signup</a></li>
+          <li *ngIf="user != null"><a class="otherlinks" [routerLink]="['createthread']">New Thread</a></li>
+          <li *ngIf="user != null"><a class="otherlinks" (click)="logoutUser()">Logout</a></li>
         </ul>
 
         <form class="navbar-form navbar-right">
