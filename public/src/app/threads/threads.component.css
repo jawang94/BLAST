@@ -3,13 +3,13 @@
     position: fixed;
     left: 14%;
     top: 12%;
-    overflow-y: scroll;
 }
 
 .col-md-9 {
     width: 100%;
-    height: auto;
+    height: 850px;
     margin-top: -1%;
+    overflow-y: scroll;
 }
 
 .col-sm-8 {

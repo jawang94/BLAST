@@ -38,7 +38,8 @@
         </ul>
 
         <form class="navbar-form navbar-right">
-          <span *ngIf="user != null">Welcome {{ user.username }} </span>
+          <span *ngIf="user != null" id="idblast">Go BLAST </span>
+          <span *ngIf="user != null" id="notsoimportantspan">{{ user.username }}</span>
           <div class="form-group">
             <input type="text" class="form-control" placeholder="Search" />
           </div>

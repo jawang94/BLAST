@@ -12,6 +12,26 @@
     border-radius: 10px;
 }
 
+.navbar-form, .navbar-right{
+    width: 25%;
+    text-align: right;
+}
+
+#notsoimportantspan{
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-weight: bolder;
+    font-size: 16px;
+    color: grey;
+    margin-right: 2%;
+}
+
+#idblast{
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-size: 20px;
+    color: #FF4E00;
+    font-weight: bold;
+}
+
 .hidden {
     display: none;
 }
