@@ -7,61 +7,64 @@
 />
 <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
 <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
-<!-- 
-<div id="threadRoomContainer">
-  <h1 id="title">Conversation Board</h1>
-  <div id="conversation_board">
-    <p *ngFor="let message of messages">
-      {{ message.user.username }}: {{ message.content }}
-    </p>
+<!--
+  <div id="threadRoomContainer">
+    <h1 id="title">Conversation Board</h1>
+    <div id="conversation_board">
+      <p *ngFor="let message of messages">
+        {{ message.user.username }}: {{ message.content }}
+      </p>
+    </div>
+    <div *ngFor="let user of users" id="user_list">
+      <p>{{ user.name }}</p>
+    </div>
+    <form id="messageForm">
+      <input
+        [(ngModel)]="message.content"
+        name="message"
+        placeholder="Type a message"
+      />
+      <button (click)="sendMessage()">Send</button>
+    </form>
   </div>
-  <div *ngFor="let user of users" id="user_list">
-    <p>{{ user.name }}</p>
-  </div>
-  <form id="messageForm">
-    <input
-      [(ngModel)]="message.content"
-      name="message"
-      placeholder="Type a message"
-    />
-    <button (click)="sendMessage()">Send</button>
-  </form>
-</div> -->
+-->
 <div class="row chat-window col-xs-5 col-md-3" id="chat_window_1">
-    <div class="col-xs-12 col-md-12">
-      <div class="panel panel-default">
-        <div class="panel-heading top-bar">
-          <div class="col-md-8 col-xs-8">
-            <h3>{{ thread.title }}</h3>
-            <p>{{ thread.content }}</p>
-          </div>
+  <div class="col-xs-12 col-md-12">
+    <div class="panel panel-default">
+      <div class="panel-heading top-bar">
+        <div class="col-md-8 col-xs-8">
+          <h3>{{ thread.title }}</h3>
+          <p>{{ thread.content }}</p>
         </div>
-        <div id="messagecontent">
-          <p *ngFor="let message of messages"> {{ message.user.username }}: {{ message.content }} </p>
-        </div>
-        <div class="panel-footer">
-          <div class="input-group">
-            <form id="messageForm">
-              <input
-                id="sendbar"
-                
-                [(ngModel)]="message.content"
-                name="message"
-                placeholder="Type a message"
-              />
-              <button (click)="sendMessage()" style="display: none;">Send</button>
-            </form>
-          </div>
       </div>
+      <div id="messagecontent">
+        <p *ngFor="let message of messages">
+          {{ message.user.username }}: {{ message.content }}
+        </p>
+      </div>
+      <div class="panel-footer">
+        <div class="input-group">
+          <form id="messageForm" (submit)="sendMessage()">
+            <input
+              id="sendbar"
+              [(ngModel)]="message.content"
+              name="message"
+              placeholder="Type a message"
+            />
+            <button type="submit" style="display:none;">Send</button>
+          </form>
+        </div>
+      </div>
+    </div>
   </div>
-</div>
 
-<!-- Active user thing -->
+  <!-- Active user thing -->
   <div class="sidenavright">
     <p>Active Users</p>
     <ul>
       <li *ngFor="let user of users">
-        <h6 *ngIf="user.thread.id == thread.id">{{user.name}}</h6>
+        <h6 *ngIf="user.thread.id == thread.id">{{ user.name }}</h6>
       </li>
     </ul>
   </div>
+</div>
