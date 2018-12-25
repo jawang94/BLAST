@@ -6,10 +6,10 @@
   /* Set the width of the sidebar */
   position: fixed;
   /* Fixed Sidebar (stay in place on scroll) */
-  top: 0.5%;
+  top: 0.45%;
   left: 0;
-  margin-top: 4.3%;
-  background-color: #E8E6E5;
+  margin-top: 5.11%;
+  background-color: #23272a;
   overflow-x: hidden;
   /* Disable horizontal scroll */
   padding: 1%;

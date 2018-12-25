@@ -38,8 +38,8 @@ p {
     top: 0.5%;
     /* Stay at the top */
     left: 87%;
-    margin-top: 4.3%;
-    background-color: #E8E6E5;
+    margin-top: 6.5%;
+    background-color: #2c2f33;
     overflow-x: hidden;
     /* Disable horizontal scroll */
     padding: 1%;
@@ -62,7 +62,6 @@ p {
 
 /* When you mouse over the navigation links, change their color */
 
-
 /* Style page content */
 
 .main {
@@ -84,7 +83,7 @@ p {
 
 .sidenavright p {
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-    color: black;
+    color: #7289da;
     font-size: 24px;
     font-weight: bold;
 }
@@ -108,7 +107,8 @@ p {
     border-radius: 10px;
     height: 1000px;
 }
-p{
+
+p {
     width: 100%;
 }
 
@@ -134,7 +134,8 @@ body {
     height: 100%;
     bottom: 0;
 }
-.col-md-8, .col-xs-8{
+
+.col-md-8, .col-xs-8 {
     width: 100%;
 }
 
@@ -173,16 +174,16 @@ body {
     overflow-y: scroll;
 }
 
-.panel-footer{
+.panel-footer {
     padding: 1%;
 }
 
-.input-group{
+.input-group {
     width: 100%;
     height: 100%;
 }
 
-#sendbar{
+#sendbar {
     width: 100%;
     height: 50px;
     font-size: 16px;

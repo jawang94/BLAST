@@ -1,15 +1,16 @@
 .navbarcontainer {
-    float: top;
-    position: absolute;
     position: fixed;
     width: 100%;
+    height: auto;
     padding: 0%;
-    z-index: 1;
+    margin: 0;
+    background-color: #23272a
 }
 
 .container-fluid {
     padding: 1%;
     border-radius: 10px;
+    background-color: #23272a
 }
 
 .navbar-form, .navbar-right {
